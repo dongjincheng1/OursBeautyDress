@@ -1,4 +1,4 @@
-package com.example.beautydress.db;
+package db;
 
 import com.lidroid.xutils.db.annotation.Column;
 import com.lidroid.xutils.db.annotation.Table;

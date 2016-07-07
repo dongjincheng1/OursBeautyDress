@@ -1,4 +1,4 @@
-package com.example.beautydress.db;
+package db;
 
 import com.lidroid.xutils.DbUtils;
 import com.lidroid.xutils.db.sqlite.Selector;
