@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.rb_space_id:
                         repacleView(new TabMineFragment());
                         break;
+
                 }
             }
         });
