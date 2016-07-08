@@ -9,6 +9,8 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.example.beautydress.Adapter.HomeAdapter;
 import com.example.beautydress.R;
@@ -24,6 +26,10 @@ public class TabHomeFragment extends Fragment {
     private TabLayout tl;
     private ViewPager viewPager;
     private List<Fragment> fragments;
+    private LinearLayout ll_hor_tab;
+    private LinearLayout ll_ver_tab;
+    private ImageView iv_down;
+    private ImageView iv_top;
 
 
     @Override
@@ -41,6 +47,10 @@ public class TabHomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = (View) inflater.inflate(R.layout.tab_home_layout, null);
         tl = (TabLayout) view.findViewById(R.id.tl_id);
+        ll_hor_tab = (LinearLayout)view.findViewById(R.id.ll_hor_tab_id);
+        ll_ver_tab = (LinearLayout)view.findViewById(R.id.ll_ver_tab_id);
+        iv_down = (ImageView)view.findViewById(R.id.iv_down_id);
+        iv_top = (ImageView)view.findViewById(R.id.iv_top_id);
         viewPager=(ViewPager)view.findViewById(R.id.home_viewpager);
         fragments=new ArrayList<Fragment>();
         return view;
