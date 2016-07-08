@@ -10,7 +10,7 @@
         android:orientation="vertical"
         tools:context="com.example.beautydress.Activity.Mine_Setting_Activity">
         <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+            android:id="@+id/setting_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:title="设置"
