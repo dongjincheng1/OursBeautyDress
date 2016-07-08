@@ -7,17 +7,17 @@ public class JingPin {
     private double selling_price;
     private String  title;
     private int sales_volume;
-    private string pic_url;
-    private string url;
+    private String pic_url;
+    private String url;
 
     public JingPin() {
     }
 
-    public string getPic_url() {
+    public String getPic_url() {
         return pic_url;
     }
 
-    public JingPin(string pic_url, int sales_volume, double selling_price, String title, string url) {
+    public JingPin(String pic_url, int sales_volume, double selling_price, String title, String url) {
         this.pic_url = pic_url;
         this.sales_volume = sales_volume;
         this.selling_price = selling_price;
@@ -25,7 +25,7 @@ public class JingPin {
         this.url = url;
     }
 
-    public void setPic_url(string pic_url) {
+    public void setPic_url(String pic_url) {
         this.pic_url = pic_url;
     }
 
@@ -53,11 +53,11 @@ public class JingPin {
         this.title = title;
     }
 
-    public string getUrl() {
+    public String getUrl() {
         return url;
     }
 
-    public void setUrl(string url) {
+    public void setUrl(String url) {
         this.url = url;
     }
 

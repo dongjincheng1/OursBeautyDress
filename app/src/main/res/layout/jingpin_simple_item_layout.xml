@@ -38,13 +38,13 @@
             android:textColor="@android:color/holo_red_light"
             android:layout_marginRight="5dp"/>
         <TextView
-            android:id="@+id/jp_item_selling_price_id"
+            android:id="@+id/jp_item_sales_volume_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="78"
-            android:layout_toLeftOf="@id/jp_item_alert_id"/>
+            />
         <TextView
-            android:id="@+id/jp_item_alert_id"
+            android:id="@+id/jp_item_tishi_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="件已售"
