@@ -3,39 +3,35 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@drawable/jingxuan_tab_bg_shape"
+        android:gravity="center">
 
-        <android.support.design.widget.TabLayout
-            android:id="@+id/tl_id"
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@android:color/white"
-            app:tabIndicatorColor="@android:color/holo_red_light"
-            app:tabIndicatorHeight="3dp"
-            app:tabMode="scrollable"
-            app:tabSelectedTextColor="@android:color/holo_red_light"
-            app:tabTextColor="@android:color/darker_gray">
-
-        </android.support.design.widget.TabLayout>
-
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="match_parent"
-            android:background="@android:color/white"
-            android:src="@mipmap/delivery_more_un" />
+            android:text="精选好货" />
     </LinearLayout>
-    <android.support.v4.view.ViewPager
-        android:id="@+id/home_viewpager"
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
 
-    </android.support.v4.view.ViewPager>
-
+        <GridView
+            android:id="@+id/jx_gv_id"
+            android:horizontalSpacing="10dp"
+            android:verticalSpacing="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:numColumns="2"
+            android:layout_margin="10dp"
+            >
+        </GridView>
+    </LinearLayout>
 </LinearLayout>
