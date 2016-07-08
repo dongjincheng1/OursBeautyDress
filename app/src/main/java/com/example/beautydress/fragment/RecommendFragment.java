@@ -102,7 +102,7 @@ public class RecommendFragment extends Fragment {
      */
     private void aboutViewPager() {
 
-        //数据源
+        //数据源11
         int[] imageIds = new int[]{R.mipmap.ban1,R.mipmap.ban2,R.mipmap.ban3,R.mipmap.ban4};
         ds = new LinkedList<>();
 //        for (BrannerItem brannerItem : brannerItems) {
