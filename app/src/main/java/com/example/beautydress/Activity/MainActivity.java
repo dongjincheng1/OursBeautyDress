@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private RadioButton rb_cart;
     private RadioButton rb_mine;
     private FragmentTransaction transaction;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

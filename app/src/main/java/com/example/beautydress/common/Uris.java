@@ -8,6 +8,7 @@ public class Uris {
     // 基本URI
     public static final String BASE_URI = "http://api.yuike.com/";
 
+
     //首页标签名
     public static final StringBuffer HOME_TAGNAME_URI = new StringBuffer(BASE_URI)
             .append("gmall/api/1.0/home/floor_list.php?mid=457465&yk_pid=3&yk_appid=1&yk_cc=baidu&yk_cvc=311");
@@ -45,17 +46,17 @@ public class Uris {
 
 
     //精选
-    public static final StringBuffer JINGXUAN_URI = new StringBuffer(BASE_URI)
+    public static final StringBuffer JINGXUAN_URI = new StringBuffer("http://vapi.yuike.com/")
             .append("1.0/product/quality.php?mid=457465&type=choice&sid=c171660f23cb1eea5ebb8857003b5846&yk_pid=3&yk_appid=1&yk_cc=baidu&yk_cvc=311&cursor=0&count=40");
 
 
     //我
-    public static final StringBuffer MINE_URI = new StringBuffer(BASE_URI)
+    public static final StringBuffer MINE_URI = new StringBuffer("http://vapi.yuike.com/")
             .append("1.0/user/detail_ex.php?sid=c171660f23cb1eea5ebb8857003b5846&yk_pid=3&yk_appid=1&yk_cc=baidu&yk_cvc=311&mid=457465");
 
 
     //城市(location)
-    public static final StringBuffer CITY_URI = new StringBuffer(BASE_URI)
+    public static final StringBuffer CITY_URI = new StringBuffer("http://vapi.yuike.com/")
             .append("1.0/address/location_list.php?sid=c171660f23cb1eea5ebb8857003b5846&yk_pid=3&yk_appid=1&yk_cc=baidu&yk_cvc=311&mid=457465");
 
 }
