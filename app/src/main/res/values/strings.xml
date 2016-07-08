@@ -23,6 +23,13 @@
         <item>关注官方公众号</item>
         <item>给美丽衣橱打5分</item>
     </string-array>
+    <string-array name="itemName_03">
+        <item>清除本地缓存</item>
+        <item>关闭消息推送</item>
+        <item>向好友推荐美丽衣橱</item>
+        <item>新版本检测</item>
+        <item>关于</item>
+    </string-array>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_login">Sign in</string>
 
@@ -38,6 +45,114 @@
    <string name="permission_rationale">"Contacts permissions are needed for providing email
     completions."
 </string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_title_social_recommendations">Enable social recommendations</string>
+    <string name="pref_description_social_recommendations">Recommendations for people to contact
+        based on your message history
+    </string>
+
+    <string name="pref_title_display_name">Display name</string>
+    <string name="pref_default_display_name">John Smith</string>
+
+    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
+    <string-array name="pref_example_list_titles">
+        <item>Always</item>
+        <item>When possible</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_example_list_values">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+
+    <!-- Example settings for Data & Sync -->
+    <string name="pref_header_data_sync">Data &amp; sync</string>
+
+    <string name="pref_title_sync_frequency">Sync frequency</string>
+    <string-array name="pref_sync_frequency_titles">
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+        <item>3 hours</item>
+        <item>6 hours</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_sync_frequency_values">
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>180</item>
+        <item>360</item>
+        <item>-1</item>
+    </string-array>
+
+    <string name="pref_title_system_sync_settings">System sync settings</string>
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_notifications">Notifications</string>
+
+    <string name="pref_title_new_message_notifications">New message notifications</string>
+
+    <string name="pref_title_ringtone">Ringtone</string>
+    <string name="pref_ringtone_silent">Silent</string>
+
+    <string name="pref_title_vibrate">Vibrate</string>
+    <string name="action_settings">设置</string>
+    <string name="actionbar_activity_not_found">Failed to open intent...</string>
+    <string name="share_by_weixin">微信分享</string>
+    <string name="share_by_qq">QQ分享</string>
+    <string name="share_by_yixin">易信分享</string>
+    <string name="shake_share">注册摇一摇截图（分享）</string>
+    <string name="shake_openshare">注册摇一摇（打开分享面板）</string>
+    <string name="shake_scrshot">注册摇一摇（截图）</string>
+    <string name="take_scrshot">直接截图</string>
+    <string name="play">播放</string>
+    <string name="pause">暂停</string>
+    <string name="stop">停止</string>
+    <string name="quit">退出</string>
+    <string name="video_start_time">00:00</string>
+    <string name="goto_video">摇一摇视频截图Activity</string>
+    <string name="goto_game">游戏Activity</string>
+    <string name="goto_common">普通Activity</string>
+    <string name="video">VideoActivity</string>
+    <string name="game">GameActivity</string>
+    <string name="common">CommonActivity</string>
+    <string name="back">返回</string>
+    <string name="goto_facebook">添加Facebook分享</string>
+    <string name="fb_login">Facebook登录</string>
+    <string name="fb_logout">Facebook注销</string>
+    <string name="fb_share">Facebook分享</string>
+    <string name="laiwang_share">来往分享</string>
+    <string name="instagram_share">Instagram分享</string>
+    <string name="pocket_share">Pocket分享</string>
+    <string name="linkedin_share">LinkedIn分享</string>
+    <string name="foursquare_share">FourSquare分享</string>
+    <string name="ynote_share">有道云笔记分享</string>
+    <string name="evernote_share">印象笔记分享</string>
+    <string name="pinterest_share">Pinterest分享</string>
+    <string name="custom_platform_share">自定义平台分享</string>
+    <string name="login_sina">登录（新浪微博）</string>
+    <string name="logout_sina">注销登录（新浪微博）</string>
+    <string name="login_qq">登录（QQ）</string>
+    <string name="logout_qq">注销登录（QQ）</string>
+    <string name="login_qzone">登录（QQ空间）</string>
+    <string name="logout_qzone">注销登录（QQ空间）</string>
+    <string name="fb_app_id">567261760019884</string>
+    <string name="photo_post">Photo Post</string>
+    <string name="success">Success</string>
+    <string name="successfully_posted_post">Successfully posted \'%1$s\'.\nPost ID: %2$s</string>
+    <string name="error">Error</string>
+    <string name="status_update">Updating Facebook status at </string>
+    <string name="ok">OK</string>
+    <string name="cancelled">Cancelled</string>
+    <string name="permission_not_granted">Unable to perform selected action because permissions were not granted.</string>
 
 
 </resources>

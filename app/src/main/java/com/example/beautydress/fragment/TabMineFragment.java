@@ -11,9 +11,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 
 import com.example.beautydress.Activity.LoginActivity;
+import com.example.beautydress.Activity.Mine_Setting_Activity;
 import com.example.beautydress.R;
 
 import java.util.ArrayList;
@@ -28,8 +30,10 @@ public class TabMineFragment extends Fragment {
     private ListView me_lv_01, me_lv_02;
     private List<Map<String, Object>> data01 = new ArrayList<Map<String, Object>>();
     private List<Map<String, Object>> data02 = new ArrayList<Map<String, Object>>();
+
     private Button me_btn_login;
     private FragmentTransaction transaction;
+    private RelativeLayout mine_setting;
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -54,14 +58,18 @@ public class TabMineFragment extends Fragment {
         me_lv_01 = (ListView) view.findViewById(R.id.me_lv_01);
         me_lv_02 = (ListView) view.findViewById(R.id.me_lv_02);
         me_btn_login = (Button) view.findViewById(R.id.me_btn_login);
+        mine_setting= (RelativeLayout) view.findViewById(R.id.mine_setting);
+
 
         aboutListView_01();
         aboutListView_02();
+
 
         aboutOnClick();
 
         return view;
     }
+
 
     private void aboutOnClick() {
         me_btn_login.setOnClickListener(new View.OnClickListener() {
@@ -71,6 +79,14 @@ public class TabMineFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        mine_setting.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(getActivity(),Mine_Setting_Activity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void aboutListView_01() {
@@ -111,6 +127,7 @@ public class TabMineFragment extends Fragment {
                 new String[]{"img", "text", "image"}, new int[]{R.id.me_lv_01_iv_01, R.id.me_lv_01_tv, R.id.me_lv_01_iv_02});
         me_lv_02.setAdapter(adapter);
     }
+
 
 
 
