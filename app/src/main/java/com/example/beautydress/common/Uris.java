@@ -35,6 +35,14 @@ public class Uris {
     public static final StringBuffer HOME_GIRL_COMMOTY_URI = new StringBuffer(BASE_URI)
             .append("gmall/api/1.0/allbuy/list.php?mid=457465&type=dress&category_ids=4796%2C4797%2C4805%2C4838%2C4839%2C4840%2C4841%2C4843&sort=default&yk_pid=3&yk_appid=1&yk_cc=baidu&yk_cvc=311&cursor=0&count=40");
 
+    //首页的的鞋包分类
+    public static final StringBuffer HOME_SHOSE__URI = new StringBuffer(BASE_URI)
+            .append("gmall/api/1.0/allbuy/category_list.php?mid=457465&type=shoes&yk_pid=3&yk_appid=1&yk_cc=baidu&yk_cvc=311&cursor=0&count=40");
+
+    //首页的的鞋包列表
+    public static final StringBuffer HOME_SHOSE_URI = new StringBuffer(BASE_URI)
+            .append("gmall/api/1.0/allbuy/list.php?mid=457465&type=shoes&category_ids=0&sort=default&yk_pid=3&yk_appid=1&yk_cc=baidu&yk_cvc=311&cursor=0&count=40");
+
 
     //精选
     public static final StringBuffer JINGXUAN_URI = new StringBuffer(BASE_URI)
