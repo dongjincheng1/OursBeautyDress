@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -33,7 +34,9 @@ public class TabMineFragment extends Fragment {
 
     private Button me_btn_login;
     private FragmentTransaction transaction;
-    private RelativeLayout mine_setting;
+    private RelativeLayout mine_setting,me_rl_01,me_rl_02,me_rl_03,me_rl_04,me_rl_05;
+
+
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -57,6 +60,11 @@ public class TabMineFragment extends Fragment {
         View view = (View) inflater.inflate(R.layout.tab_mine_layout, null);
         me_lv_01 = (ListView) view.findViewById(R.id.me_lv_01);
         me_lv_02 = (ListView) view.findViewById(R.id.me_lv_02);
+        me_rl_01 = (RelativeLayout) view.findViewById(R.id.me_rl_01);
+        me_rl_02 = (RelativeLayout) view.findViewById(R.id.me_rl_02);
+        me_rl_03 = (RelativeLayout) view.findViewById(R.id.me_rl_03);
+        me_rl_04 = (RelativeLayout) view.findViewById(R.id.me_rl_04);
+        me_rl_05 = (RelativeLayout) view.findViewById(R.id.me_rl_05);
         me_btn_login = (Button) view.findViewById(R.id.me_btn_login);
         mine_setting= (RelativeLayout) view.findViewById(R.id.mine_setting);
 
@@ -86,13 +94,48 @@ public class TabMineFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        me_rl_01.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(getActivity(),LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+        me_rl_02.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(getActivity(),LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+        me_rl_03.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(getActivity(),LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+        me_rl_04.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(getActivity(),LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+        me_rl_05.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(getActivity(),LoginActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
     private void aboutListView_01() {
         int[] image = new int[]{R.mipmap.yuike_settings_indicator_un, R.mipmap.yuike_settings_indicator_un, R.mipmap.yuike_settings_indicator_un, R.mipmap.yuike_settings_indicator_un, R.mipmap.yuike_settings_indicator_un, R.mipmap.yuike_settings_indicator_un, R.mipmap.yuike_settings_indicator_un};
-        int[] imgsrc = new int[]{R.mipmap.kimagel_addr_list, R.mipmap.kimagel_coupon, R.mipmap.kimagel_ykcoin, R.mipmap.kimagel_signcenter,
-                R.mipmap.kimagel_wallet, R.mipmap.kimagel_x_brand, R.mipmap.kimagel_x_product};
+        int[] imgsrc = new int[]{R.mipmap.kimagel_addr_list, R.mipmap.kimagel_coupon,R.mipmap.kimagel_wallet, R.mipmap.kimagel_ykcoin, R.mipmap.kimagel_signcenter,
+                 R.mipmap.kimagel_x_product ,R.mipmap.kimagel_x_brand};
         String itemName[] = getResources().getStringArray(R.array.itemName);
 
         for (int i = 0; i < imgsrc.length; i++) {
@@ -107,6 +150,13 @@ public class TabMineFragment extends Fragment {
         SimpleAdapter adapter = new SimpleAdapter(getContext(), data01, R.layout.me_item_layout,
                 new String[]{"img", "text", "image"}, new int[]{R.id.me_lv_01_iv_01, R.id.me_lv_01_tv, R.id.me_lv_01_iv_02});
         me_lv_01.setAdapter(adapter);
+        me_lv_01.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent =new Intent(getActivity(),LoginActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void aboutListView_02() {
@@ -126,6 +176,13 @@ public class TabMineFragment extends Fragment {
         SimpleAdapter adapter = new SimpleAdapter(getContext(), data02, R.layout.me_item_layout,
                 new String[]{"img", "text", "image"}, new int[]{R.id.me_lv_01_iv_01, R.id.me_lv_01_tv, R.id.me_lv_01_iv_02});
         me_lv_02.setAdapter(adapter);
+        me_lv_02.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent =new Intent(getActivity(),LoginActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 
