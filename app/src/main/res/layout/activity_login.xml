@@ -134,7 +134,15 @@
                 android:text="新用户注册"
                 android:textColor="#ff0000"
                 android:textStyle="bold" />
-            android:textStyle="bold" />
+            <Button
+                android:id="@+id/btn_share"
+                style="?android:textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="#ff0000"
+                android:textStyle="bold"
+                android:text="一键分享" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_marginTop="30dp"
@@ -157,6 +165,7 @@
                     android:src="@mipmap/login_dotted_line"/>
             </LinearLayout>
             <ImageView
+                android:id="@+id/btn_wechat_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -168,6 +177,37 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:text="微信"/>
+            <Button
+                android:id="@+id/btn_sina_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="登录（新浪微博）" />
+
+            <Button
+                android:id="@+id/btn_sina_logout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="注销（新浪微博）" />
+
+            <Button
+                android:id="@+id/btn_qq_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="登录（QQ）" />
+
+            <Button
+                android:id="@+id/btn_qq_logout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="注销（QQ）" />
+
+            <Button
+                android:id="@+id/btn_wechat_logout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="注销（微信）" />
+
+
 
         </LinearLayout>
     </ScrollView>

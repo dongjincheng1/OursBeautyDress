@@ -27,7 +27,7 @@ public class Mine_Setting_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mine__setting_);
         me_lv_03= (ListView) findViewById(R.id.me_lv_03);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.setting_toolbar);
         //设置自定义Toolbar
         setSupportActionBar(toolbar);
         //获取到Toolbar对应的Actionbar
