@@ -6,6 +6,7 @@
     android:orientation="vertical"
 
     tools:context="com.example.beautydress.Activity.LoginActivity">
+
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -13,13 +14,16 @@
         android:title="登录"
         android:navigationIcon="@mipmap/yuike_button_xback_sp"
         android:background="#fff"
-        android:gravity="center_horizontal">
-        <TextView
+       >
+
+            <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="登录"
             android:textSize="18sp"
             android:textColor="#7A7A7A"/>
+
+
     </android.support.v7.widget.Toolbar>
     <!-- Login progress -->
     <ProgressBar
@@ -60,11 +64,13 @@
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
                  android:layout_marginLeft="10dp"
+                 android:layout_marginTop="10dp"
                  android:layout_toRightOf="@+id/login_user_iv"
                  android:src="@mipmap/login_stoke_line"/>
              <AutoCompleteTextView
                  android:layout_marginLeft="5dp"
                  android:layout_toRightOf="@+id/login_stoke_line"
+
                  android:id="@+id/email"
                  android:layout_width="match_parent"
                  android:layout_height="wrap_content"
@@ -95,6 +101,7 @@
         android:layout_height="wrap_content"
         android:src="@mipmap/login_stoke_line"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:layout_toRightOf="@+id/login_pass_iv"/>
     android:layout_toRightOf="@+id/login_pass_iv"/>
     <EditText
