@@ -26,10 +26,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activity.GuidePagerActivity" />
+        <activity android:name=".Activity.LoginActivity" />
 
-        <activity
-            android:name=".Activity.LoginActivity"
-            ></activity>
+        <activity android:name=".Activity.Mine_Setting_Activity"></activity>
     </application>
 
 </manifest>
