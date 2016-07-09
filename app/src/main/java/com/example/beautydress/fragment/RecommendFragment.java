@@ -11,7 +11,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -25,6 +24,7 @@ import com.example.beautydress.bean.BrannerItem;
 import com.example.beautydress.bean.JingPin;
 import com.example.beautydress.common.Uris;
 import com.example.beautydress.utils.ParseJSONUtils;
+import com.example.beautydress.view.MyGirdView;
 import com.lidroid.xutils.BitmapUtils;
 import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.exception.HttpException;
@@ -53,9 +53,10 @@ public class RecommendFragment extends Fragment {
 
     private String jingPingUrl;
     private List<JingPin> jingPinList;
-    private GridView jingPin_GV;
+
 
     private static final String TAG = "RecommendFragment";
+    private MyGirdView jingPin_GV;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -72,7 +73,7 @@ public class RecommendFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.recommend_layout,null);
         vp_top = (ViewPager) view.findViewById(R.id.vp_top_id);
-        jingPin_GV=(GridView)view.findViewById(R.id.jp_gv_id);
+        jingPin_GV = (MyGirdView)view.findViewById(R.id.jp_gv_id);
         ll_container_id = (LinearLayout) view.findViewById(R.id.ll_container_id);
 
         return view;
