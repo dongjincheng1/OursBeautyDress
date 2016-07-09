@@ -111,12 +111,15 @@
         <!-- *************************    分享相关的注册 END **************************** -->
         <meta-data
             android:name="UMENG_CHANNEL"
-            android:value="Umeng"></meta-data>
+            android:value="Umeng" />
 
         <uses-library
             android:name="com.google.android.maps"
             android:required="false" />
         <uses-library android:name="android.test.runner" />
+
+        <activity android:name=".Activity.SearchActivity" />
+        <activity android:name=".Activity.MessageActivity"></activity>
     </application>
 
 </manifest>

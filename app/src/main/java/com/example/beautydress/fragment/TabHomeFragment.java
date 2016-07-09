@@ -1,5 +1,7 @@
 package com.example.beautydress.fragment;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -12,7 +14,11 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.SimpleAdapter;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
+import com.example.beautydress.Activity.MessageActivity;
+import com.example.beautydress.Activity.SearchActivity;
 import com.example.beautydress.Adapter.HomeAdapter;
 import com.example.beautydress.R;
 
@@ -22,13 +28,16 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by  jyx on 2016/7/9
+ * Created by Djc on 2016/7/6.
  */
 public class TabHomeFragment extends Fragment implements View.OnClickListener{
     private View view;
     private TabLayout tl;
     private ViewPager viewPager;
     private List<Fragment> fragments;
+    private RelativeLayout search_bar;
+    private ImageView message_bar;
+
     private LinearLayout ll_hor_tab;
     private LinearLayout ll_ver_tab;
     private ImageView iv_down;
@@ -36,6 +45,7 @@ public class TabHomeFragment extends Fragment implements View.OnClickListener{
     private GridView tab_gv;
     List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
     String[]  tab_ver ={"推荐","女装","鞋包","男装","中老年","童装","美妆","家纺"};
+
 
 
     @Override
@@ -49,9 +59,28 @@ public class TabHomeFragment extends Fragment implements View.OnClickListener{
 
         initView();
         fragments=new ArrayList<Fragment>();
+        search_bar= (RelativeLayout) view.findViewById(R.id.search_bar);
+        message_bar= (ImageView) view.findViewById(R.id.message_bar);
+        aboutOnClick();
         return view;
-    }
 
+    }
+    private void aboutOnClick(){
+        search_bar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(getActivity(),SearchActivity.class);
+                startActivity(intent);
+            }
+        });
+        message_bar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getContext(), MessageActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
     private void initView() {
         tl = (TabLayout) view.findViewById(R.id.tl_id);
         ll_hor_tab = (LinearLayout)view.findViewById(R.id.ll_hor_tab_id);
