@@ -43,7 +43,7 @@ public class ParseJSONUtils {
             JSONObject data = jsonStr.getJSONObject("data");
             JSONArray products = data.getJSONArray("products");
             jingPinList = JSON.parseArray(products.toString(), JingPin.class);
-        } catch (Exception e) {
+        } catch (JSONException e) {
             e.printStackTrace();
         }
         return jingPinList;

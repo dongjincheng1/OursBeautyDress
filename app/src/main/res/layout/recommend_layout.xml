@@ -7,10 +7,10 @@
         android:layout_width="match_parent"
         android:layout_height="140dp">
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/vp_top_id"
-        android:layout_width="match_parent"
-        android:layout_height="140dp" />
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp_top_id"
+            android:layout_width="match_parent"
+            android:layout_height="140dp" />
         <LinearLayout
             android:id="@+id/ll_container_id"
             android:layout_width="match_parent"
@@ -53,6 +53,16 @@
         android:layout_weight="1">
 
     </ListView>
+    <GridView
+        android:id="@+id/jp_gv_id"
+        android:horizontalSpacing="10dp"
+        android:verticalSpacing="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:numColumns="2"
+        android:layout_margin="10dp"
+        >
+    </GridView>
 
 
 </LinearLayout>
