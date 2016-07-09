@@ -1,6 +1,7 @@
 package com.example.beautydress.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -9,7 +10,11 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
+import com.example.beautydress.Activity.MessageActivity;
+import com.example.beautydress.Activity.SearchActivity;
 import com.example.beautydress.Adapter.HomeAdapter;
 import com.example.beautydress.R;
 
@@ -24,6 +29,9 @@ public class TabHomeFragment extends Fragment {
     private TabLayout tl;
     private ViewPager viewPager;
     private List<Fragment> fragments;
+    private RelativeLayout search_bar;
+    private ImageView message_bar;
+
 
 
     @Override
@@ -43,9 +51,28 @@ public class TabHomeFragment extends Fragment {
         tl = (TabLayout) view.findViewById(R.id.tl_id);
         viewPager=(ViewPager)view.findViewById(R.id.home_viewpager);
         fragments=new ArrayList<Fragment>();
+        search_bar= (RelativeLayout) view.findViewById(R.id.search_bar);
+        message_bar= (ImageView) view.findViewById(R.id.message_bar);
+        aboutOnClick();
         return view;
-    }
 
+    }
+    private void aboutOnClick(){
+        search_bar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(getActivity(),SearchActivity.class);
+                startActivity(intent);
+            }
+        });
+        message_bar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getContext(), MessageActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
