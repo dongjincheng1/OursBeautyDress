@@ -7,7 +7,8 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        >
 
         <LinearLayout
             android:id="@+id/ll_hor_tab_id"
@@ -43,25 +44,33 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:visibility="invisible"
+            android:background="@android:color/white"
+            android:layout_marginTop="3dp"
             >
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+               >
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="选择分类" />
+                    android:text="选择分类"
+                    android:textSize="16sp"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"/>
 
                 <ImageView
                     android:id="@+id/iv_top_id"
                     android:layout_width="40dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:background="@android:color/white"
-                    android:src="@mipmap/delivery_moretop_un" />
-            </LinearLayout>
+                    android:src="@mipmap/delivery_moretop_un"
+                   android:layout_alignParentRight="true"
+                    android:layout_marginRight="3dp"/>
+            </RelativeLayout>
 
             <GridView
                 android:id="@+id/tb_gv_id"
@@ -70,56 +79,8 @@
                 android:layout_margin="10dp"
                 android:horizontalSpacing="10dp"
                 android:numColumns="4"
-                android:verticalSpacing="5dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@mipmap/yuike_page_edit_barbg"
-                    android:text="推荐" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@mipmap/yuike_page_edit_barbg"
-                    android:text="女装" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@mipmap/yuike_page_edit_barbg"
-                    android:text="推荐" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@mipmap/yuike_page_edit_barbg"
-                    android:text="女装" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@mipmap/yuike_page_edit_barbg"
-                    android:text="推荐" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@mipmap/yuike_page_edit_barbg"
-                    android:text="女装" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@mipmap/yuike_page_edit_barbg"
-                    android:text="推荐" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@mipmap/yuike_page_edit_barbg"
-                    android:text="女装" />
-
+                android:verticalSpacing="5dp"
+                android:gravity="center">
             </GridView>
 
 

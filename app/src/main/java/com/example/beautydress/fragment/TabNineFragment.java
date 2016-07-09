@@ -1,8 +1,10 @@
 package com.example.beautydress.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.beautydress.Activity.ShowActivity;
 import com.example.beautydress.Adapter.MyBaseAdapter;
 import com.example.beautydress.Adapter.ViewHolder;
 import com.example.beautydress.R;
@@ -90,6 +93,10 @@ public class TabNineFragment extends Fragment {
                         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                             Toast.makeText(getActivity(),listJingXuan.get(i).getTaobao_title(),Toast.LENGTH_LONG).show();
                             //点击事件
+                            Intent intent = new Intent(getActivity(), ShowActivity.class);
+                            intent.putExtra("detailUrl",listJingXuan.get(i).getTaobao_url().toString());
+                            Log.i(TAG, "onItemClick: "+listJingXuan.get(i).getTaobao_url());
+                            startActivity(intent);
                         }
                     });
                 } catch (Exception e) {
