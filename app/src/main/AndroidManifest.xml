@@ -42,16 +42,15 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activity.GuidePagerActivity" />
-        <activity android:name=".Activity.LoginActivity"
-            android:configChanges="orientation|keyboard"/>
-
-        <activity android:name=".Activity.Mine_Setting_Activity"></activity>
-
+        <activity
+            android:name=".Activity.LoginActivity"
+            android:configChanges="orientation|keyboard" />
+        <activity android:name=".Activity.Mine_Setting_Activity" />
+        <activity android:name=".Activity.ShowActivity" />
         <!-- 友盟AppKey， 需要替换成你自己的 -->
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="577f4c8b67e58eb25c001f90" >
-        </meta-data>
+            android:value="577f4c8b67e58eb25c001f90"></meta-data>
         <!-- *************************    分享相关的注册 START **************************** -->
         <!-- 分享内容编辑页 -->
         <activity
@@ -60,14 +59,13 @@
             android:launchMode="singleTask"
             android:noHistory="true"
             android:theme="@style/Theme.UMDialog"
-            android:windowSoftInputMode="stateVisible|adjustResize" >
-        </activity>
+            android:windowSoftInputMode="stateVisible|adjustResize"></activity>
 
         <!-- 腾讯SSO授权的Activity注册 -->
         <activity
             android:name="com.tencent.tauth.AuthActivity"
             android:launchMode="singleTask"
-            android:noHistory="true" >
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -113,13 +111,15 @@
         <!-- *************************    分享相关的注册 END **************************** -->
         <meta-data
             android:name="UMENG_CHANNEL"
-            android:value="Umeng" >
-        </meta-data>
+            android:value="Umeng" />
 
         <uses-library
             android:name="com.google.android.maps"
             android:required="false" />
         <uses-library android:name="android.test.runner" />
+
+        <activity android:name=".Activity.SearchActivity" />
+        <activity android:name=".Activity.MessageActivity"></activity>
     </application>
 
 </manifest>
