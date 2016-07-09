@@ -295,7 +295,7 @@ public class RecommendFragment extends Fragment {
             public void onSuccess(ResponseInfo<String> responseInfo) {
                 try {
                     jingPinList = ParseJSONUtils.parseJingPin(responseInfo.result);
-                    jingPin_GV.setAdapter(new MyBaseAdapter<JingPin>(jingPinList, getActivity(), R.layout.jingpin_simple_item_layout) {
+                    jingPin_GV.setAdapter(new MyBaseAdapter<JingPin>(jingPinList, getActivity(), R.layout.shangpin_simple_item_layout) {
                         @Override
                         public void setData(ViewHolder viewHolder, int position) {
                             TextView tv_title = (TextView) viewHolder.findViewById(R.id.jp_item_title_id);

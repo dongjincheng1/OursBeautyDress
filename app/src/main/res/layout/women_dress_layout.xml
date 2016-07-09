@@ -3,7 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
+    <GridView
+        android:id="@+id/women_dress_classify_gv_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:horizontalSpacing="10dp"
+        android:numColumns="5"
+        android:verticalSpacing="10dp">
+    </GridView>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/actionbar_height"

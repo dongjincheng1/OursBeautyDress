@@ -4,8 +4,11 @@ import android.util.Log;
 
 import com.alibaba.fastjson.JSON;
 import com.example.beautydress.bean.BrannerItem;
+import com.example.beautydress.bean.Classify;
 import com.example.beautydress.bean.JingPin;
 import com.example.beautydress.bean.JingXuan;
+import com.example.beautydress.bean.ShangPin;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -48,6 +51,19 @@ public class ParseJSONUtils {
         }
         return jingPinList;
     }
+    public static List<ShangPin> parseShangPin(String shangPinStr) {
+        List<ShangPin> shangPinList = null;
+        try {
+            shangPinList = new ArrayList<ShangPin>();
+            JSONObject jsonStr = new JSONObject(shangPinStr);
+            JSONObject data = jsonStr.getJSONObject("data");
+            JSONArray products = data.getJSONArray("products");
+            shangPinList = JSON.parseArray(products.toString(), ShangPin.class);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return shangPinList;
+    }
 
 
     public  static List<BrannerItem>  parseBranner(String jsonStr){
@@ -63,5 +79,19 @@ public class ParseJSONUtils {
             e.printStackTrace();
         }
         return  brannerItems;
+    }
+    public static List<Classify> parseClassify(String classifyStr){
+        List<Classify> classify=null;
+        try {
+            classify = new ArrayList<>();
+            JSONObject object = new JSONObject(classifyStr);
+            JSONObject data = object.getJSONObject("data");
+            JSONArray jsonArray = data.getJSONArray("category_list");
+            classify=JSON.parseArray(jsonArray.toString(),Classify.class);
+            Log.i("TAG", "parseClassify: "+classify.toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return classify;
     }
 }
