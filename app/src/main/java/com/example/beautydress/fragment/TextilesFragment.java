@@ -30,21 +30,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Djc on 2016/7/6.
+ * Created by Djc on 2016/7/10- 16:55
  */
-public class OlderFragment extends Fragment {
+public class TextilesFragment extends Fragment {
     private View view;
-    private GridView older_classify_gv;
-    private GridView older_gv;
+    private GridView textiles_classify_gv;
+    private GridView  textiles_gv;
     private HttpUtils hUtils;
     private BitmapUtils bitmapUtils;
-    private List<ShangPin> older_List;
-    private List<Classify> older_classify_list;
+    private List<ShangPin> textiles_List;
+    private List<Classify>  textiles_classify_list;
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view=inflater.inflate(R.layout.order_layout,null);
-        older_classify_gv=(MyGirdView)view.findViewById(R.id.older_classify_gv_id);
-        older_gv=(MyGirdView)view.findViewById(R.id.older_gv_id);
+        view=inflater.inflate(R.layout.textiles_layout,null);
+        textiles_classify_gv=(MyGirdView)view.findViewById(R.id.textiles_classify_gv_id);
+        textiles_gv=(MyGirdView)view.findViewById(R.id.textiles_gv_id);
         return view;
     }
     @Override
@@ -52,27 +52,28 @@ public class OlderFragment extends Fragment {
         super.onCreate(savedInstanceState);
         hUtils = new HttpUtils();
         bitmapUtils = new BitmapUtils(getActivity());
-        older_classify_list=new ArrayList<Classify>();
-        older_List=new ArrayList<ShangPin>();
+        textiles_classify_list=new ArrayList<Classify>();
+        textiles_List=new ArrayList<ShangPin>();
     }
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        aboutOlderGridView(Uris.OLDER_LIST);
-        aboutOlderClassifyGridView( Uris.OLDER_CATE);
+        aboutTextilesGridView(Uris.TEXTILES_LIST);
+        aboutTextilesClassifyGridView( Uris.TEXTILES_CATE);
         super.onActivityCreated(savedInstanceState);
     }
-    private void aboutOlderClassifyGridView(String classifyUrl){
+
+    private void aboutTextilesClassifyGridView(String classifyUrl){
         hUtils.send(HttpRequest.HttpMethod.GET, classifyUrl, new RequestCallBack<String>() {
             @Override
             public void onSuccess(ResponseInfo<String> responseInfo) {
-                older_classify_list= ParseJSONUtils.parseClassify(responseInfo.result);
-                older_classify_gv.setAdapter(new MyBaseAdapter<Classify>(older_classify_list,getActivity(),R.layout.classify_simple_item_layout) {
+                textiles_classify_list= ParseJSONUtils.parseClassify(responseInfo.result);
+                textiles_classify_gv.setAdapter(new MyBaseAdapter<Classify>(textiles_classify_list,getActivity(),R.layout.classify_simple_item_layout) {
                     @Override
                     public void setData(ViewHolder viewHolder, int position) {
                         ImageView wd_cl_iv= (ImageView) viewHolder.findViewById(R.id.cl_item_iv_id);
                         TextView wd_cl_tv=(TextView)viewHolder.findViewById(R.id.cl_item_tv_id);
-                        bitmapUtils.display(wd_cl_iv,older_classify_list.get(position).getPic_url());
-                        wd_cl_tv.setText(older_classify_list.get(position).getTitle());
+                        bitmapUtils.display(wd_cl_iv,textiles_classify_list.get(position).getPic_url());
+                        wd_cl_tv.setText(textiles_classify_list.get(position).getTitle());
                     }
                 });
             }
@@ -82,23 +83,23 @@ public class OlderFragment extends Fragment {
         });
     }
 
-    private void aboutOlderGridView(String jingPinUrl) {
+    private void aboutTextilesGridView(String jingPinUrl) {
         hUtils.send(HttpRequest.HttpMethod.GET, jingPinUrl, new RequestCallBack<String>() {
             @Override
             public void onSuccess(ResponseInfo<String> responseInfo) {
                 try {
-                    older_List = ParseJSONUtils.parseShangPin(responseInfo.result);
-                    older_gv.setAdapter(new MyBaseAdapter<ShangPin>(older_List, getActivity(), R.layout.shangpin_simple_item_layout) {
+                    textiles_List = ParseJSONUtils.parseShangPin(responseInfo.result);
+                    textiles_gv.setAdapter(new MyBaseAdapter<ShangPin>(textiles_List, getActivity(), R.layout.shangpin_simple_item_layout) {
                         @Override
                         public void setData(ViewHolder viewHolder, int position) {
                             TextView tv_title = (TextView) viewHolder.findViewById(R.id.jp_item_title_id);
                             TextView tv_selling_price = (TextView) viewHolder.findViewById(R.id.jp_item_selling_price_id);
                             TextView tv_sales_volume = (TextView) viewHolder.findViewById(R.id.jp_item_sales_volume_id);
                             ImageView iv_img = (ImageView) viewHolder.findViewById(R.id.jp_item_img_id);
-                            tv_title.setText(older_List.get(position).getTitle());
-                            tv_selling_price.setText("¥" + older_List.get(position).getSelling_price() + "");
-                            tv_sales_volume.setText(older_List.get(position).getSales_volume() + "");
-                            bitmapUtils.display(iv_img, older_List.get(position).getPic_url());
+                            tv_title.setText(textiles_List.get(position).getTitle());
+                            tv_selling_price.setText("¥" + textiles_List.get(position).getSelling_price() + "");
+                            tv_sales_volume.setText(textiles_List.get(position).getSales_volume() + "");
+                            bitmapUtils.display(iv_img, textiles_List.get(position).getPic_url());
                         }
                     });
 

@@ -18,6 +18,7 @@ import com.example.beautydress.bean.Classify;
 import com.example.beautydress.bean.JingPin;
 import com.example.beautydress.common.Uris;
 import com.example.beautydress.utils.ParseJSONUtils;
+import com.example.beautydress.view.MyGirdView;
 import com.lidroid.xutils.BitmapUtils;
 import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.exception.HttpException;
@@ -43,8 +44,8 @@ public class WomenDressFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view=inflater.inflate(R.layout.women_dress_layout,null);
-        women_dress_classify_gv=(GridView)view.findViewById(R.id.women_dress_classify_gv_id);
-        women_dress_gv2=(GridView)view.findViewById(R.id.wd_gv2_id);
+        women_dress_classify_gv=(MyGirdView)view.findViewById(R.id.women_dress_classify_gv_id);
+        women_dress_gv2=(MyGirdView)view.findViewById(R.id.wd_gv2_id);
         return view;
     }
 

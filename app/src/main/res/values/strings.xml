@@ -5,9 +5,10 @@
         <item>女装</item>
         <item>鞋包</item>
         <item>男装</item>
-        <item>中年</item>
+        <item>中老年</item>
         <item>童装</item>
         <item>美妆</item>
+        <item>家纺</item>
     </string-array>
     <string-array name="itemName">
         <item>我的收货地址</item>

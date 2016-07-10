@@ -1,6 +1,5 @@
 package com.example.beautydress.fragment;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,9 +12,8 @@ import android.view.ViewGroup;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.SimpleAdapter;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.SimpleAdapter;
 
 import com.example.beautydress.Activity.MessageActivity;
 import com.example.beautydress.Activity.SearchActivity;
@@ -35,13 +33,14 @@ public class TabHomeFragment extends Fragment implements View.OnClickListener{
     private TabLayout tl;
     private ViewPager viewPager;
     private List<Fragment> fragments;
-    RecommendFragment recommendFragment;
-    WomenDressFragment womenDressFragment;
-    ShoesBagFragment shoesBagFragment;
-    MenDressFragment menDressFragment;
-    OlderFragment olderFragment;
-    ChildFragment childFragmen;
-    BeautyFragment beautyFragment;
+    private  RecommendFragment recommendFragment;
+    private WomenDressFragment womenDressFragment;
+    private ShoesBagFragment shoesBagFragment;
+    private MenDressFragment menDressFragment;
+    private OlderFragment olderFragment;
+    private  ChildFragment childFragmen;
+    private   BeautyFragment beautyFragment;
+    private TextilesFragment textilesFragment;
     private RelativeLayout search_bar;
     private ImageView message_bar;
 
@@ -53,10 +52,6 @@ public class TabHomeFragment extends Fragment implements View.OnClickListener{
     List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
     String[]  tab_ver ={"推荐","女装","鞋包","男装","中老年","童装","美妆","家纺"};
 
-
-
-
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +62,7 @@ public class TabHomeFragment extends Fragment implements View.OnClickListener{
         olderFragment = new OlderFragment();
         childFragmen = new ChildFragment();
         beautyFragment = new BeautyFragment();
+        textilesFragment=new TextilesFragment();
     }
 
     @Override
@@ -121,8 +117,9 @@ public class TabHomeFragment extends Fragment implements View.OnClickListener{
         fragments.add(olderFragment);
         fragments.add(childFragmen);
         fragments.add(beautyFragment);
+        fragments.add(textilesFragment);
         tl.setupWithViewPager(viewPager);
-        viewPager.setAdapter(new HomeAdapter(getFragmentManager(),tabsName,fragments));
+        viewPager.setAdapter(new HomeAdapter(getChildFragmentManager(),tabsName,fragments));
 
         aboutVerticalTab();
 
@@ -154,14 +151,5 @@ public class TabHomeFragment extends Fragment implements View.OnClickListener{
                 ll_ver_tab.setVisibility(View.GONE);
                 break;
         }
-    }
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-    }
-
-    @Override
-    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
-        super.onViewStateRestored(savedInstanceState);
     }
 }
