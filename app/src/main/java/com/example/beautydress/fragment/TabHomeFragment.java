@@ -1,6 +1,5 @@
 package com.example.beautydress.fragment;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,12 +9,11 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.SimpleAdapter;
-import android.widget.ImageView;
+import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.example.beautydress.Activity.MessageActivity;
 import com.example.beautydress.Activity.SearchActivity;
@@ -23,9 +21,7 @@ import com.example.beautydress.Adapter.HomeAdapter;
 import com.example.beautydress.R;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by Djc on 2016/7/6.
@@ -49,9 +45,7 @@ public class TabHomeFragment extends Fragment implements View.OnClickListener{
     private LinearLayout ll_ver_tab;
     private ImageView iv_down;
     private ImageView iv_top;
-    private GridView tab_gv;
-    List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
-    String[]  tab_ver ={"推荐","女装","鞋包","男装","中老年","童装","美妆","家纺"};
+    private PopupWindow mPopWindow;
 
 
 
@@ -102,7 +96,6 @@ public class TabHomeFragment extends Fragment implements View.OnClickListener{
         ll_ver_tab = (LinearLayout)view.findViewById(R.id.ll_ver_tab_id);
         iv_down = (ImageView)view.findViewById(R.id.iv_down_id);
         iv_top = (ImageView)view.findViewById(R.id.iv_top_id);
-        tab_gv = (GridView)view.findViewById(R.id.tb_gv_id);
         viewPager=(ViewPager)view.findViewById(R.id.home_viewpager);
     }
 
@@ -122,24 +115,12 @@ public class TabHomeFragment extends Fragment implements View.OnClickListener{
         fragments.add(childFragmen);
         fragments.add(beautyFragment);
         tl.setupWithViewPager(viewPager);
-        viewPager.setAdapter(new HomeAdapter(getFragmentManager(),tabsName,fragments));
-
-        aboutVerticalTab();
+        viewPager.setAdapter(new HomeAdapter(getChildFragmentManager(),tabsName,fragments));
 
         iv_down.setOnClickListener(this);
         iv_top.setOnClickListener(this);
     }
 
-    private void aboutVerticalTab() {
-        for (int i = 0; i < tab_ver.length; i++) {
-            Map<String, Object> map = new HashMap<String, Object>();
-            map.put("tab", tab_ver[i]);
-            list.add(map);
-        }
-        SimpleAdapter adapter = new SimpleAdapter(getActivity(), list, R.layout.tab_ver_item, new String[] { "tab" },
-                new int[] { R.id.tv_tab_item_id });
-        tab_gv.setAdapter(adapter);
-    }
 
     @Override
     public void onClick(View view) {
@@ -147,21 +128,104 @@ public class TabHomeFragment extends Fragment implements View.OnClickListener{
             case R.id.iv_down_id:
                 ll_hor_tab.setVisibility(View.GONE);
                 ll_ver_tab.setVisibility(View.VISIBLE);
+                showPopupWindow();
                 break;
 
             case R.id.iv_top_id:
                 ll_hor_tab.setVisibility(View.VISIBLE);
                 ll_ver_tab.setVisibility(View.GONE);
+                mPopWindow.dismiss();
                 break;
         }
     }
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
+
+    private void showPopupWindow() {
+        View contentView = LayoutInflater.from(getActivity()).inflate(R.layout.tab_ver_item,null);
+        mPopWindow = new PopupWindow(contentView);
+        mPopWindow.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
+        mPopWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
+        TextView tv1 = (TextView)contentView.findViewById(R.id.tv_tab_tj_id);
+        TextView tv2 = (TextView)contentView.findViewById(R.id.tv_tab_girl_id);
+        TextView tv3 = (TextView)contentView.findViewById(R.id.tv_tab_shose_id);
+        TextView tv4 = (TextView)contentView.findViewById(R.id.tv_tab_men_id);
+        TextView tv5 = (TextView)contentView.findViewById(R.id.tv_tab_older_id);
+        TextView tv6 = (TextView)contentView.findViewById(R.id.tv_tab_child_id);
+        TextView tv7 = (TextView)contentView.findViewById(R.id.tv_tab_meizhuang_id);
+        TextView tv8 = (TextView)contentView.findViewById(R.id.tv_tab_jiafang_id);
+
+        MyOnclickListenr listener = new MyOnclickListenr();
+        tv1.setOnClickListener(listener);
+        tv2.setOnClickListener(listener);
+        tv3.setOnClickListener(listener);
+        tv4.setOnClickListener(listener);
+        tv5.setOnClickListener(listener);
+        tv6.setOnClickListener(listener);
+        tv7.setOnClickListener(listener);
+        tv8.setOnClickListener(listener);
+
+        mPopWindow.showAsDropDown(ll_ver_tab);
+
     }
 
-    @Override
-    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
-        super.onViewStateRestored(savedInstanceState);
+    /**
+     * 自定义监听子类,实现每个标签点击跳转到相应界面
+     */
+    private class  MyOnclickListenr  implements View.OnClickListener{
+
+        @Override
+        public void onClick(View view) {
+            switch (view.getId()){
+                case  R.id.tv_tab_tj_id:
+                    viewPager.setCurrentItem(0);
+                    ll_hor_tab.setVisibility(View.VISIBLE);
+                    ll_ver_tab.setVisibility(View.GONE);
+                    mPopWindow.dismiss();
+                    break;
+                case  R.id.tv_tab_girl_id:
+                    viewPager.setCurrentItem(1);
+                    ll_hor_tab.setVisibility(View.VISIBLE);
+                    ll_ver_tab.setVisibility(View.GONE);
+                    mPopWindow.dismiss();
+                    break;
+                case  R.id.tv_tab_shose_id:
+                    viewPager.setCurrentItem(2);
+                    ll_hor_tab.setVisibility(View.VISIBLE);
+                    ll_ver_tab.setVisibility(View.GONE);
+                    mPopWindow.dismiss();
+                    break;
+                case  R.id.tv_tab_men_id:
+                    viewPager.setCurrentItem(3);
+                    ll_hor_tab.setVisibility(View.VISIBLE);
+                    ll_ver_tab.setVisibility(View.GONE);
+                    mPopWindow.dismiss();
+                    break;
+                case  R.id.tv_tab_older_id:
+                    viewPager.setCurrentItem(4);
+                    ll_hor_tab.setVisibility(View.VISIBLE);
+                    ll_ver_tab.setVisibility(View.GONE);
+                    mPopWindow.dismiss();
+                    break;
+                case  R.id.tv_tab_child_id:
+                    viewPager.setCurrentItem(5);
+                    ll_hor_tab.setVisibility(View.VISIBLE);
+                    ll_ver_tab.setVisibility(View.GONE);
+                    mPopWindow.dismiss();
+                    break;
+                case  R.id.tv_tab_meizhuang_id:
+                    viewPager.setCurrentItem(6);
+                    ll_hor_tab.setVisibility(View.VISIBLE);
+                    ll_ver_tab.setVisibility(View.GONE);
+                    mPopWindow.dismiss();
+                    break;
+                case  R.id.tv_tab_jiafang_id:
+                    viewPager.setCurrentItem(7);
+                    ll_hor_tab.setVisibility(View.VISIBLE);
+                    ll_ver_tab.setVisibility(View.GONE);
+                    mPopWindow.dismiss();
+                    break;
+        }
     }
+
+    }
+
 }
