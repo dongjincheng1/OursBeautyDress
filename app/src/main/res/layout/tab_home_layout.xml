@@ -22,8 +22,7 @@
         app:tabTextColor="@android:color/darker_gray">
 
     </android.support.design.widget.TabLayout>
-    <ImageView
-        android:layout_width="40dp"
+    <ImageView android:layout_width="40dp"
         android:background="@android:color/white"
         android:layout_height="match_parent"
         android:src="@mipmap/delivery_more_un"/>
