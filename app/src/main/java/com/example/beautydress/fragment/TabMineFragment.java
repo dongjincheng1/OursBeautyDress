@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
@@ -35,6 +36,7 @@ public class TabMineFragment extends Fragment {
     private Button me_btn_login;
     private FragmentTransaction transaction;
     private RelativeLayout mine_setting,me_rl_01,me_rl_02,me_rl_03,me_rl_04,me_rl_05;
+    private ImageView image_top;
 
 
 
@@ -67,6 +69,7 @@ public class TabMineFragment extends Fragment {
         me_rl_05 = (RelativeLayout) view.findViewById(R.id.me_rl_05);
         me_btn_login = (Button) view.findViewById(R.id.me_btn_login);
         mine_setting= (RelativeLayout) view.findViewById(R.id.mine_setting);
+        image_top = (ImageView) view.findViewById(R.id.image_top);
 
 
         aboutListView_01();
@@ -74,6 +77,8 @@ public class TabMineFragment extends Fragment {
 
 
         aboutOnClick();
+
+
 
         return view;
     }
@@ -130,6 +135,12 @@ public class TabMineFragment extends Fragment {
             }
         });
 
+        image_top.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                me_lv_01.setSelection(0);
+            }
+        });
     }
 
     private void aboutListView_01() {

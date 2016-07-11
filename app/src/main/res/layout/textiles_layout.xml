@@ -14,7 +14,7 @@
             android:orientation="vertical">
 
             <com.example.beautydress.view.MyGirdView
-                android:id="@+id/older_classify_gv_id"
+                android:id="@+id/textiles_classify_gv_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -56,13 +56,13 @@
                 android:layout_weight="1">
 
                 <com.example.beautydress.view.MyGirdView
-                    android:id="@+id/older_gv_id"
+                    android:id="@+id/textiles_gv_id"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
                     android:horizontalSpacing="10dp"
                     android:numColumns="2"
-                    android:verticalSpacing="10dp" />
+                    android:verticalSpacing="10dp"></com.example.beautydress.view.MyGirdView>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

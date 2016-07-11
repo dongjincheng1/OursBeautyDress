@@ -46,7 +46,7 @@
             android:name=".Activity.LoginActivity"
             android:configChanges="orientation|keyboard" />
         <activity android:name=".Activity.Mine_Setting_Activity" />
-
+        <activity android:name=".Activity.ShowActivity" />
         <!-- 友盟AppKey， 需要替换成你自己的 -->
         <meta-data
             android:name="UMENG_APPKEY"
@@ -119,7 +119,8 @@
         <uses-library android:name="android.test.runner" />
 
         <activity android:name=".Activity.SearchActivity" />
-        <activity android:name=".Activity.MessageActivity"></activity>
+        <activity android:name=".Activity.MessageActivity" />
+        <activity android:name=".Activity.LoginSuccessActivity"></activity>
     </application>
 
 </manifest>

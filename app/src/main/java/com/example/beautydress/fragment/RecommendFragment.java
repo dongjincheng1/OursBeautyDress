@@ -14,10 +14,17 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
+import com.alibaba.fastjson.JSONException;
+import com.example.beautydress.Adapter.MyBaseAdapter;
+import com.example.beautydress.Adapter.ViewHolder;
 import com.example.beautydress.R;
 import com.example.beautydress.bean.BrannerItem;
+import com.example.beautydress.bean.JingPin;
 import com.example.beautydress.common.Uris;
+import com.example.beautydress.utils.ParseJSONUtils;
+import com.example.beautydress.view.MyGirdView;
 import com.lidroid.xutils.BitmapUtils;
 import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.exception.HttpException;
@@ -38,35 +45,44 @@ public class RecommendFragment extends Fragment {
     private ListView lv_detail;
     private HttpUtils hUtils;
     private BitmapUtils bitmapUtils;
-    private  String brannerUrl;
-    private  List<BrannerItem>  brannerItems;
+    private String brannerUrl;
+    private List<BrannerItem> brannerItems;
     private List<ImageView> ds;
     private LinearLayout ll_container_id;
     private Handler mHandler;
 
+    private String jingPingUrl;
+    private List<JingPin> jingPinList;
+
+
     private static final String TAG = "RecommendFragment";
+    private MyGirdView jingPin_GV;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         hUtils = new HttpUtils();
         bitmapUtils = new BitmapUtils(getActivity());
-        brannerItems=new LinkedList<>();
+        brannerItems = new LinkedList<>();
         brannerUrl = Uris.HOME_BRANNER_URI.toString();
-        Log.i(TAG, "onCreate: "+brannerUrl);
+        jingPingUrl = Uris.HOME_RECOMMEND_URI.toString();
+        Log.i(TAG, "onCreate: " + brannerUrl);
         super.onCreate(savedInstanceState);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view=inflater.inflate(R.layout.recommend_layout,null);
-        vp_top = (ViewPager)view.findViewById(R.id.vp_top_id);
-        ll_container_id = (LinearLayout)view.findViewById(R.id.ll_container_id);
+        view = inflater.inflate(R.layout.recommend_layout,null);
+        vp_top = (ViewPager) view.findViewById(R.id.vp_top_id);
+        jingPin_GV = (MyGirdView)view.findViewById(R.id.jp_gv_id);
+        ll_container_id = (LinearLayout) view.findViewById(R.id.ll_container_id);
+
         return view;
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         //数据源
-       // loadDataFromServer();
+        // loadDataFromServer();
 
         // 关于小圆点
         aboutDots();
@@ -76,34 +92,33 @@ public class RecommendFragment extends Fragment {
 
         //自动切换
         if (mHandler == null) {
-            mHandler = new Handler(){
+            mHandler = new Handler() {
                 @Override
                 public void handleMessage(Message msg) {
-                    Log.i(TAG, "handleMessage: "+msg);
+                    Log.i(TAG, "handleMessage: " + msg);
                     int currentItem = vp_top.getCurrentItem();
-                    if (currentItem<ds.size() -1){
+                    if (currentItem < ds.size() - 1) {
                         currentItem++;
-                    }else {
+                    } else {
                         currentItem = 0;
                     }
                     vp_top.setCurrentItem(currentItem);
-                    mHandler.sendEmptyMessageDelayed(0,3000);
+                    mHandler.sendEmptyMessageDelayed(0, 3000);
                 }
             };
-            mHandler.sendEmptyMessageDelayed(0,3000);
+            mHandler.sendEmptyMessageDelayed(0, 3000);
         }
-
+        aboutJingPingGridView(jingPingUrl);
         super.onActivityCreated(savedInstanceState);
     }
 
     /**
      * 关于ViewPager的操作
-     *
      */
     private void aboutViewPager() {
 
         //数据源11
-        int[] imageIds = new int[]{R.mipmap.ban1,R.mipmap.ban2,R.mipmap.ban3,R.mipmap.ban4};
+        int[] imageIds = new int[]{R.mipmap.ban1, R.mipmap.ban2, R.mipmap.ban3, R.mipmap.ban4};
         ds = new LinkedList<>();
 //        for (BrannerItem brannerItem : brannerItems) {
 //            String picUrl = brannerItem.getPicUrl();
@@ -169,6 +184,7 @@ public class RecommendFragment extends Fragment {
         }
 
     }
+
     /**
      * PageAdapter 自定义子类
      */
@@ -177,7 +193,7 @@ public class RecommendFragment extends Fragment {
         @Override
         public int getCount() {
 
-            return  ds.size();
+            return ds.size();
         }
 
         @Override
@@ -205,7 +221,7 @@ public class RecommendFragment extends Fragment {
             // container.removeView((View) object);
 
             // 方式2：移除数据源中对应位置的控件实例
-           container.removeView(ds.get(position));
+            container.removeView(ds.get(position));
         }
 
     }
@@ -216,21 +232,20 @@ public class RecommendFragment extends Fragment {
             @Override
             public void onSuccess(ResponseInfo<String> responseInfo) {
                 String result = responseInfo.result;
-                Log.i("TAG", "onSuccess: "+result);
-                 brannerItems = com.example.beautydress.utils.ParseJSONUtils.parseBranner(result);
+                Log.i("TAG", "onSuccess: " + result);
+                brannerItems = com.example.beautydress.utils.ParseJSONUtils.parseBranner(result);
 
             }
 
             @Override
             public void onFailure(HttpException error, String msg) {
-                Log.i("TAG", "onFailure: "+msg);
+                Log.i("TAG", "onFailure: " + msg);
             }
         });
     }
 
     /**
      * 关于小圆点
-     *
      */
     private void aboutDots() {
 
@@ -267,6 +282,44 @@ public class RecommendFragment extends Fragment {
             vp_top.setCurrentItem((Integer) (v.getTag()));
 
         }
+
+    }
+
+    /**
+     * 精品推荐列表
+     *
+     * @param jingPinUrl
+     */
+    private void aboutJingPingGridView(String jingPinUrl) {
+        hUtils.send(HttpRequest.HttpMethod.GET, jingPinUrl, new RequestCallBack<String>() {
+            @Override
+            public void onSuccess(ResponseInfo<String> responseInfo) {
+                try {
+                    jingPinList = ParseJSONUtils.parseJingPin(responseInfo.result);
+                    jingPin_GV.setAdapter(new MyBaseAdapter<JingPin>(jingPinList, getActivity(), R.layout.shangpin_simple_item_layout) {
+                        @Override
+                        public void setData(ViewHolder viewHolder, int position) {
+                            TextView tv_title = (TextView) viewHolder.findViewById(R.id.jp_item_title_id);
+                            TextView tv_selling_price = (TextView) viewHolder.findViewById(R.id.jp_item_selling_price_id);
+                            TextView tv_sales_volume = (TextView) viewHolder.findViewById(R.id.jp_item_sales_volume_id);
+                            ImageView iv_img = (ImageView) viewHolder.findViewById(R.id.jp_item_img_id);
+                            tv_title.setText(jingPinList.get(position).getTitle());
+                            tv_selling_price.setText("¥"+jingPinList.get(position).getSelling_price()+"");
+                            tv_sales_volume.setText(jingPinList.get(position).getSales_volume()+"");
+                            bitmapUtils.display(iv_img,jingPinList.get(position).getPic_url());
+                        }
+                    });
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(HttpException error, String msg) {
+                Log.i(TAG, "onFailure: " + msg);
+            }
+        });
 
     }
 
