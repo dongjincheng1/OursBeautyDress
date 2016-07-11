@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F7FA"
     tools:context="com.example.beautydress.Activity.MessageActivity">
     <android.support.v7.widget.Toolbar
         android:id="@+id/message_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:background="#F5F7FA"
+        android:layout_height="45dp"
         android:title="消息中心"
         android:navigationIcon="@mipmap/yuike_button_xback_sp"
-        android:background="#fff"
         android:gravity="center_horizontal">
         <TextView
             android:layout_width="wrap_content"
@@ -20,5 +22,88 @@
             android:textSize="23sp"
             android:textColor="#7A7A7A"/>
     </android.support.v7.widget.Toolbar>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF">
+        <ImageView
+            android:id="@+id/im_taobao"
+            android:layout_width="35dp"
+            android:layout_marginLeft="15dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bxcart_taobao_logo"/>
+        <TextView
+            android:id="@+id/tv_taobao_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:textColor="#f00"
+            android:textSize="14sp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/im_taobao"
+            android:text="淘宝客服信息"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_taobao_message"
+            android:layout_toRightOf="@+id/im_taobao"
+            android:layout_marginLeft="15dp"
+            android:textSize="11sp"
+            android:layout_marginTop="4dp"
+            android:text="找不到的信息在这里"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:src="@mipmap/yuike_settings_indicator_un"/>
 
-</RelativeLayout>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="15dp"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@mipmap/login_dotted_line"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="美丽衣橱信息"/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@mipmap/login_dotted_line"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="80dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="亲，你还没有会话哦~"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/msgc_img_face2"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:text="已加载全部"/>
+    </LinearLayout>
+
+
+</LinearLayout>

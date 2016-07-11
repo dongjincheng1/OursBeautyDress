@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F7FA"
     tools:context="com.example.beautydress.Activity.SearchActivity">
     <android.support.v7.widget.Toolbar
     android:id="@+id/setting_toolbar"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="45dp"
     android:title="搜索"
     android:navigationIcon="@mipmap/yuike_button_xback_sp"
-    android:background="#fff"
+    android:background="#F5F7FA"
     android:gravity="center_horizontal">
     <TextView
         android:layout_width="wrap_content"
@@ -20,5 +22,56 @@
         android:textSize="23sp"
         android:textColor="#7A7A7A"/>
 </android.support.v7.widget.Toolbar>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@android:color/darker_gray"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#F8FAFC">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
+            android:background="@drawable/biankuang"
+            >
+            <ImageView
+                android:id="@+id/yuike_search"
+                android:layout_width="30dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="3dp"
+                android:background="#FFFFFF"
+                android:src="@drawable/yuike_maintab_navbtn_search"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="4dp"
+                android:layout_toRightOf="@+id/yuike_search"
+                android:background="@android:color/white"
+                android:orientation="vertical" >
+                <EditText
+                    style="?android:attr/textViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="请输入"
+                    android:paddingBottom="5dip"
+                    android:paddingTop="5dip" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@android:color/darker_gray"
+        />
 
-</RelativeLayout>
+
+</LinearLayout>
