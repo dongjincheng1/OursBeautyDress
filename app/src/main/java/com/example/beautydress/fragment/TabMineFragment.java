@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.SimpleAdapter;
 
 import com.example.beautydress.Activity.LoginActivity;
@@ -32,6 +33,8 @@ public class TabMineFragment extends Fragment {
     private ListView me_lv_01, me_lv_02;
     private List<Map<String, Object>> data01 = new ArrayList<Map<String, Object>>();
     private List<Map<String, Object>> data02 = new ArrayList<Map<String, Object>>();
+    private ScrollView sl;
+
 
     private Button me_btn_login;
     private FragmentTransaction transaction;
@@ -70,8 +73,7 @@ public class TabMineFragment extends Fragment {
         me_btn_login = (Button) view.findViewById(R.id.me_btn_login);
         mine_setting= (RelativeLayout) view.findViewById(R.id.mine_setting);
         image_top = (ImageView) view.findViewById(R.id.image_top);
-
-
+      sl = (ScrollView) view.findViewById(R.id.fullScroll);
         aboutListView_01();
         aboutListView_02();
 
@@ -138,7 +140,7 @@ public class TabMineFragment extends Fragment {
         image_top.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                me_lv_01.setSelection(0);
+               sl.fullScroll(View.FOCUS_UP);
             }
         });
     }

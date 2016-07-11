@@ -712,8 +712,7 @@ public class LoginActivity extends AppCompatActivity implements  OnClickListener
                         // }
 
                         if (info != null) {
-                            Toast.makeText(LoginActivity.this, info.toString(),
-                                    Toast.LENGTH_SHORT).show();
+
                             Intent intent = new Intent(LoginActivity.this, LoginSuccessActivity.class);
                             Bundle bundle = new Bundle();
                             StringBuilder sb = new StringBuilder();
@@ -730,6 +729,8 @@ public class LoginActivity extends AppCompatActivity implements  OnClickListener
                             }
                             intent.putExtra("map",bundle);
                             startActivity(intent);
+                            finish();
+
                         }
                     }
                 });
