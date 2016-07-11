@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    >
+    <ImageView
+        android:id="@+id/jp_item_img_id"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/test1" />
+    <TextView
+        android:id="@+id/jp_item_title_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lines="2"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:background="#ffffff"
+        android:text="时尚印记夏装新品雪纺连衣裙无袖卡通连衣裙女夏装蓬蓬裙大裙摆女" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginBottom="5dp"
+        >
+
+        <TextView
+            android:id="@+id/jp_item_selling_price_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¥299"
+            android:textColor="@android:color/holo_red_light"
+            android:layout_marginRight="5dp"/>
+
+        <TextView
+            android:id="@+id/jp_item_tishi_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="件已售"
+            android:textSize="10sp"
+            android:layout_alignBaseline="@id/jp_item_selling_price_id"
+            android:gravity="center_vertical"
+            android:textColor="@android:color/darker_gray"
+            android:layout_alignParentRight="true"
+            />
+        <TextView
+            android:id="@+id/jp_item_sales_volume_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="78"
+            android:textSize="10sp"
+            android:textColor="@android:color/holo_red_light"
+            android:layout_alignBaseline="@id/jp_item_selling_price_id"
+            android:layout_toLeftOf="@id/jp_item_tishi_id"
+            />
+
+    </RelativeLayout>
+
+
+</LinearLayout>

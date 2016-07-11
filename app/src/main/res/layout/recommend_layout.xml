@@ -1,58 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <RelativeLayout
+    <ScrollView
+        android:id="@+id/sv_content_id"
         android:layout_width="match_parent"
-        android:layout_height="140dp">
+        android:layout_height="match_parent">
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/vp_top_id"
-        android:layout_width="match_parent"
-        android:layout_height="140dp" />
         <LinearLayout
-            android:id="@+id/ll_container_id"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="6dp"
-            android:gravity="center_horizontal" >
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/dot_selector"
-                />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="140dp">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/dot_selector"
-                android:layout_marginLeft="6dp"/>
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/vp_top_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/dot_selector"
-                android:layout_marginLeft="6dp"/>
+                <LinearLayout
+                    android:id="@+id/ll_container_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="6dp"
+                    android:gravity="center_horizontal">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/dot_selector"
-                android:layout_marginLeft="6dp"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/dot_selector" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="6dp"
+                        android:background="@drawable/dot_selector" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="6dp"
+                        android:background="@drawable/dot_selector" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="6dp"
+                        android:background="@drawable/dot_selector" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <com.example.beautydress.view.MyGirdView
+                android:id="@+id/jp_gv_id"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:horizontalSpacing="10dp"
+                android:numColumns="2"
+                android:verticalSpacing="10dp">
+
+            </com.example.beautydress.view.MyGirdView>
         </LinearLayout>
-    </RelativeLayout>
-
-
-    <ListView
-        android:id="@+id/lv_detail_id"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-
-    </ListView>
-
+    </ScrollView>
 
 </LinearLayout>

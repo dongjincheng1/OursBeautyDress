@@ -22,16 +22,20 @@ public class MainActivity extends AppCompatActivity {
     private RadioButton rb_cart;
     private RadioButton rb_mine;
     private FragmentTransaction transaction;
-
+    TabHomeFragment tabHomeFragment;
+    TabNineFragment tabNineFragment;
+    TabCartFragment tabCartFragment;
+    TabMineFragment tabMineFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initWidgets();
         aboutRadioGroupGuide();
-
-
-
+        tabHomeFragment= new TabHomeFragment();
+        tabNineFragment= new TabNineFragment();
+        tabCartFragment  =new TabCartFragment();
+        tabMineFragment= new TabMineFragment();
     }
     /**
      * 初始化控件
@@ -52,16 +56,16 @@ public class MainActivity extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 switch (i){
                     case R.id.rb_home_id:
-                        repacleView(new TabHomeFragment());
+                        repacleView(tabHomeFragment);
                         break;
                     case R.id.rb_9kuai9_id:
-                        repacleView(new TabNineFragment());
+                        repacleView(tabNineFragment);
                         break;
                     case R.id.rb_cart_id:
-                        repacleView(new TabCartFragment());
+                        repacleView(tabCartFragment);
                         break;
                     case R.id.rb_space_id:
-                        repacleView(new TabMineFragment());
+                        repacleView(tabMineFragment);
                         break;
 
                 }
@@ -71,5 +75,5 @@ public class MainActivity extends AppCompatActivity {
     private void repacleView(Fragment fragment){
         transaction=getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.ll_container_id,fragment).commit();
-        }
+    }
 }

@@ -25,7 +25,7 @@ public class Uris {
 
     //首页的的精品推荐(所有商品)
     public static final StringBuffer HOME_RECOMMEND_URI = new StringBuffer(BASE_URI)
-            .append("gmall/api/1.0/allbuy/list.php?mid=457465&type=dress&category_ids=4796%2C4797%2C4805%2C4838%2C4839%2C4840%2C4841%2C4843&sort=default&yk_pid=3&yk_appid=1&yk_cc=baidu&yk_cvc=311&cursor=0&count=40\n");
+            .append("gmall/api/1.0/allbuy/list.php?mid=457465&type=dress&category_ids=4796%2C4797%2C4805%2C4838%2C4839%2C4840%2C4841%2C4843&sort=default&yk_pid=3&yk_appid=1&yk_cc=baidu&yk_cvc=311&cursor=0&count=40");
 
 
     //首页的的女装分类
@@ -58,5 +58,25 @@ public class Uris {
     //城市(location)
     public static final StringBuffer CITY_URI = new StringBuffer("http://vapi.yuike.com/")
             .append("1.0/address/location_list.php?sid=c171660f23cb1eea5ebb8857003b5846&yk_pid=3&yk_appid=1&yk_cc=baidu&yk_cvc=311&mid=457465");
+    //男装分类
+    public static final String MEN_CATE="http://api.yuike.com/gmall/api/1.0/allbuy/category_list.php?mid=457465&type=men&yk_pid=3&yk_appid=1&yk_cc=baidu&yk_cvc=311&cursor=0&count=40";
+    //男装列表
+    public static final String MEN_LIST="http://api.yuike.com/gmall/api/1.0/allbuy/list.php?mid=457465&type=men&category_ids=0&sort=default&yk_pid=3&yk_appid=1&yk_cc=baidu&yk_cvc=311&cursor=0&count=40";
+    //中老年分类
+    public static final String OLDER_CATE="http://api.yuike.com/gmall/api/1.0/allbuy/category_list.php?mid=457465&type=agedness&yk_pid=3&yk_appid=1&yk_cc=baidu&yk_cvc=311&cursor=0&count=40";
+    //中老年列表
+    public static final String OLDER_LIST="http://api.yuike.com/gmall/api/1.0/allbuy/list.php?mid=457465&type=agedness&category_ids=0&sort=default&yk_pid=3&yk_appid=1&yk_cc=baidu&yk_cvc=311&cursor=0&count=40";
 
+    //童装分类
+    public static final String CHILDREN_CATE="http://api.yuike.com/gmall/api/1.0/allbuy/category_list.php?mid=457465&type=children&yk_pid=3&yk_appid=1&yk_cc=baidu&yk_cvc=311&cursor=0&count=40";
+    //童装列表
+    public static final String CHILDREN_LIST="http://api.yuike.com/gmall/api/1.0/allbuy/list.php?mid=457465&type=children&category_ids=0&sort=default&yk_pid=3&yk_appid=1&yk_cc=baidu&yk_cvc=311&cursor=0&count=40";
+    //美妆分类
+    public static final String MAKEUP_CATE="http://api.yuike.com/gmall/api/1.0/allbuy/category_list.php?mid=457465&type=makeup&yk_pid=3&yk_appid=1&yk_cc=baidu&yk_cvc=311&cursor=0&count=40";
+    //美妆列表
+    public static final String MAKEUP_LIST="http://api.yuike.com/gmall/api/1.0/allbuy/list.php?mid=457465&type=makeup&category_ids=0&sort=default&yk_pid=3&yk_appid=1&yk_cc=baidu&yk_cvc=311&cursor=0&count=40";
+    //家纺分类
+    public static final String TEXTILES_CATE="http://api.yuike.com/gmall/api/1.0/allbuy/category_list.php?mid=457465&type=textiles&yk_pid=3&yk_appid=1&yk_cc=baidu&yk_cvc=311&cursor=0&count=40";
+    //家纺列表
+    public static final String TEXTILES_LIST="http://api.yuike.com/gmall/api/1.0/allbuy/list.php?mid=457465&type=textiles&category_ids=0&sort=default&yk_pid=3&yk_appid=1&yk_cc=baidu&yk_cvc=311&cursor=0&count=40";
 }
