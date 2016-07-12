@@ -1,16 +1,20 @@
 package com.example.beautydress.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSONException;
+import com.bumptech.glide.Glide;
+import com.example.beautydress.Activity.ShowActivity;
 import com.example.beautydress.Adapter.MyBaseAdapter;
 import com.example.beautydress.Adapter.ViewHolder;
 import com.example.beautydress.R;
@@ -19,7 +23,6 @@ import com.example.beautydress.bean.JingPin;
 import com.example.beautydress.common.Uris;
 import com.example.beautydress.utils.ParseJSONUtils;
 import com.example.beautydress.view.MyGirdView;
-import com.lidroid.xutils.BitmapUtils;
 import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
@@ -37,7 +40,7 @@ public class WomenDressFragment extends Fragment {
     private GridView women_dress_classify_gv;
     private GridView women_dress_gv2;
     private HttpUtils hUtils;
-    private BitmapUtils bitmapUtils;
+//    private BitmapUtils bitmapUtils;
     private String jingPingUrl;
     private List<JingPin> jingPinList;
     private List<Classify> wd_classify_list;
@@ -53,7 +56,7 @@ public class WomenDressFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         hUtils = new HttpUtils();
-        bitmapUtils = new BitmapUtils(getActivity());
+//        bitmapUtils = new BitmapUtils(getActivity());
         jingPingUrl = Uris.HOME_RECOMMEND_URI.toString();
         wd_classify_list=new ArrayList<Classify>();
         jingPinList=new ArrayList<JingPin>();
@@ -76,7 +79,11 @@ public class WomenDressFragment extends Fragment {
                     public void setData(ViewHolder viewHolder, int position) {
                         ImageView wd_cl_iv= (ImageView) viewHolder.findViewById(R.id.cl_item_iv_id);
                         TextView wd_cl_tv=(TextView)viewHolder.findViewById(R.id.cl_item_tv_id);
-                        bitmapUtils.display(wd_cl_iv,wd_classify_list.get(position).getPic_url());
+//                        bitmapUtils.display(wd_cl_iv,wd_classify_list.get(position).getPic_url());
+                        Glide.with(getActivity()).load(wd_classify_list.get(position).getPic_url())
+                                .override(600,200)
+                                .fitCenter()
+                                .into(wd_cl_iv);
                         wd_cl_tv.setText(wd_classify_list.get(position).getTitle());
                     }
                 });
@@ -103,10 +110,22 @@ public class WomenDressFragment extends Fragment {
                             tv_title.setText(jingPinList.get(position).getTitle());
                             tv_selling_price.setText("¥" + jingPinList.get(position).getSelling_price() + "");
                             tv_sales_volume.setText(jingPinList.get(position).getSales_volume() + "");
-                            bitmapUtils.display(iv_img, jingPinList.get(position).getPic_url());
+//                            bitmapUtils.display(iv_img, jingPinList.get(position).getPic_url());
+                            Glide.with(getActivity()).load(jingPinList.get(position).getPic_url())
+                                    .override(600,200)
+                                    .fitCenter()
+                                    .into(iv_img);
                         }
                     });
-
+                    women_dress_gv2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                            //点击事件
+                            Intent intent = new Intent(getActivity(), ShowActivity.class);
+                            intent.putExtra("detailUrl",jingPinList.get(i).getUrl().toString());
+                            startActivity(intent);
+                        }
+                    });
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

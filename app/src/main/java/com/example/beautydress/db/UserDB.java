@@ -1,4 +1,4 @@
-package db;
+package com.example.beautydress.db;
 
 import com.lidroid.xutils.db.annotation.Column;
 import com.lidroid.xutils.db.annotation.Table;
@@ -26,9 +26,7 @@ public class UserDB  implements Serializable {
         this.id = id;
     }
 
-    public UserDB() {
 
-    }
 
     public UserDB(String name, String pwd) {
         this.name = name;
