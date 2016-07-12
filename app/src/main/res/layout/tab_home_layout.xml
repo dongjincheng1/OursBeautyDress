@@ -145,7 +145,7 @@
                 android:verticalSpacing="5dp"></GridView>
 
 
-        </LinearLayout>
+5        </LinearLayout>
 
 
     </FrameLayout>

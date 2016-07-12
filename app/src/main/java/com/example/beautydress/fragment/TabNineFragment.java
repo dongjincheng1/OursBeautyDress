@@ -14,15 +14,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.beautydress.Activity.ShowActivity;
 import com.example.beautydress.Adapter.MyBaseAdapter;
 import com.example.beautydress.Adapter.ViewHolder;
 import com.example.beautydress.R;
 import com.example.beautydress.bean.JingXuan;
 import com.example.beautydress.common.Uris;
-import com.example.beautydress.utils.MyBitmapUtils;
 import com.example.beautydress.utils.ParseJSONUtils;
-import com.lidroid.xutils.BitmapUtils;
 import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
@@ -40,17 +39,15 @@ public class TabNineFragment extends Fragment {
     private String jingPinUrlStr;
     private List<JingXuan> listJingXuan;
     private GridView gv;
-    private BitmapUtils bitmapUtils;
-    private MyBitmapUtils myBitmapUtils;
+//    BitmapUtils bitmapUtils;
     private static final String TAG = "---TabNineFragment----";
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         utils = new HttpUtils();
-        bitmapUtils = new BitmapUtils(getActivity());
+//        bitmapUtils = new BitmapUtils(getActivity());
         listJingXuan = new ArrayList<JingXuan>();
-        myBitmapUtils=new MyBitmapUtils();
     }
 
     @Override
@@ -88,7 +85,11 @@ public class TabNineFragment extends Fragment {
                             tv_selling_price.setText("¥"+listJingXuan.get(position).getTaobao_selling_price()+"");
                             tv_discount.setText(listJingXuan.get(position).getDiscount()+"");
                             tv_title.setText(listJingXuan.get(position).getTaobao_title()+"");
-                            myBitmapUtils.display(iv_img,listJingXuan.get(position).getTaobao_pic_url());
+//                            bitmapUtils.display(iv_img,listJingXuan.get(position).getTaobao_pic_url());
+                            Glide.with(getActivity())
+                                    .load(listJingXuan.get(position).getTaobao_pic_url())
+                                    .override(600,200)
+                                    .into(iv_img);
                         }
                     });
                     gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -97,7 +98,7 @@ public class TabNineFragment extends Fragment {
                             Toast.makeText(getActivity(),listJingXuan.get(i).getTaobao_title(),Toast.LENGTH_LONG).show();
                             //点击事件
                             Intent intent = new Intent(getActivity(), ShowActivity.class);
-                            intent.putExtra("detailUrl",listJingXuan.get(i).getTaobao_url());
+                            intent.putExtra("detailUrl",listJingXuan.get(i).getTaobao_url().toString());
                             Log.i(TAG, "onItemClick: "+listJingXuan.get(i).getTaobao_url());
                             startActivity(intent);
                         }

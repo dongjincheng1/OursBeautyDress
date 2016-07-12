@@ -3,44 +3,38 @@
 
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/fullScroll"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     >
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+
+
     <LinearLayout
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="160dp"
             android:gravity="center"
+            android:orientation="vertical"
             android:background="@mipmap/yuike_path_bg4">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="登录美丽衣橱，有神秘惊喜哦！"
-                android:gravity="center_horizontal"
-                android:textColor="#FF0000"
-                android:textSize="20sp"
-                android:id="@+id/me_tv_id" />
-            <Button
-                android:id="@+id/me_btn_login"
-                android:layout_marginTop="20dp"
-                android:layout_width="120dp"
-                android:layout_height="35dp"
-                android:background="@mipmap/alertview_custom_right_un"
-                android:text="登  录"
-                android:textColor="#fff"
-                android:layout_below="@+id/me_tv_id"
-                android:layout_centerHorizontal="true" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/login_success_pic"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:src="@drawable/ic_launcher"
+                app:civ_border_width="2dp"
+                app:civ_border_color="#fff"/>
+          <TextView
+              android:id="@+id/login_success_tv"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="haha"/>
 
-        </RelativeLayout>
+        </LinearLayout>
         <LinearLayout
             android:id="@+id/me_ll_allOrder_id"
             android:onClick="onClick"
@@ -206,7 +200,6 @@
             android:layout_height="15dp"
             android:background="#F1F2F4"
             />
-
         <RelativeLayout
             android:id="@+id/mine_setting"
             android:layout_width="match_parent"
@@ -233,19 +226,6 @@
                 android:layout_height="wrap_content"
                 android:src="@mipmap/yuike_settings_indicator_un"
                 android:layout_marginTop="5dp"/>
-
         </RelativeLayout>
-
     </LinearLayout>
-        <ImageView
-            android:id="@+id/image_top"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/yuike_button_gotop_un"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_margin="10dp"
-
-            />
-    </RelativeLayout>
 </ScrollView>

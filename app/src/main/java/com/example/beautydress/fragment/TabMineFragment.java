@@ -11,8 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.SimpleAdapter;
 
 import com.example.beautydress.Activity.LoginActivity;
@@ -31,10 +33,13 @@ public class TabMineFragment extends Fragment {
     private ListView me_lv_01, me_lv_02;
     private List<Map<String, Object>> data01 = new ArrayList<Map<String, Object>>();
     private List<Map<String, Object>> data02 = new ArrayList<Map<String, Object>>();
+    private ScrollView sl;
+
 
     private Button me_btn_login;
     private FragmentTransaction transaction;
     private RelativeLayout mine_setting,me_rl_01,me_rl_02,me_rl_03,me_rl_04,me_rl_05;
+    private ImageView image_top;
 
 
 
@@ -67,13 +72,15 @@ public class TabMineFragment extends Fragment {
         me_rl_05 = (RelativeLayout) view.findViewById(R.id.me_rl_05);
         me_btn_login = (Button) view.findViewById(R.id.me_btn_login);
         mine_setting= (RelativeLayout) view.findViewById(R.id.mine_setting);
-
-
+        image_top = (ImageView) view.findViewById(R.id.image_top);
+      sl = (ScrollView) view.findViewById(R.id.fullScroll);
         aboutListView_01();
         aboutListView_02();
 
 
         aboutOnClick();
+
+
 
         return view;
     }
@@ -130,10 +137,18 @@ public class TabMineFragment extends Fragment {
             }
         });
 
+        image_top.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+               sl.fullScroll(View.FOCUS_UP);
+            }
+        });
     }
 
     private void aboutListView_01() {
-        int[] image = new int[]{R.mipmap.yuike_settings_indicator_un, R.mipmap.yuike_settings_indicator_un, R.mipmap.yuike_settings_indicator_un, R.mipmap.yuike_settings_indicator_un, R.mipmap.yuike_settings_indicator_un, R.mipmap.yuike_settings_indicator_un, R.mipmap.yuike_settings_indicator_un};
+        int[] image = new int[]{R.mipmap.yuike_settings_indicator_un, R.mipmap.yuike_settings_indicator_un,
+                R.mipmap.yuike_settings_indicator_un, R.mipmap.yuike_settings_indicator_un,
+                R.mipmap.yuike_settings_indicator_un, R.mipmap.yuike_settings_indicator_un, R.mipmap.yuike_settings_indicator_un};
         int[] imgsrc = new int[]{R.mipmap.kimagel_addr_list, R.mipmap.kimagel_coupon,R.mipmap.kimagel_wallet, R.mipmap.kimagel_ykcoin, R.mipmap.kimagel_signcenter,
                  R.mipmap.kimagel_x_product ,R.mipmap.kimagel_x_brand};
         String itemName[] = getResources().getStringArray(R.array.itemName);

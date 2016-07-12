@@ -1,4 +1,4 @@
-package db;
+package com.example.beautydress.db;
 
 import android.content.ContentValues;
 import android.content.Context;

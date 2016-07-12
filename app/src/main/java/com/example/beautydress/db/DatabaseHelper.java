@@ -1,4 +1,4 @@
-package db;
+package com.example.beautydress.db;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

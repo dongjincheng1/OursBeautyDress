@@ -17,6 +17,9 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.beautydress.R;
+import com.example.beautydress.db.UserDB;
+import com.example.beautydress.db.UserDao;
+import com.lidroid.xutils.DbUtils;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.bean.SocializeEntity;
 import com.umeng.socialize.bean.StatusCode;
@@ -68,7 +71,9 @@ import com.umeng.socialize.ynote.media.YNoteShareContent;
 
 import java.io.File;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import umeng.umeng.soexample.commons.Constants;
 
@@ -113,6 +118,11 @@ public class LoginActivity extends AppCompatActivity implements  OnClickListener
     private ImageView wechatLoginButton;
     private Button wechatLogoutButton;
     private Button shareButton;
+    private EditText et_1;
+    private EditText et_2;
+    private Button button;
+    private DbUtils dbUtils;//数据库工具
+    private UserDao userDao;//自己的类工具Dao
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,6 +138,37 @@ public class LoginActivity extends AppCompatActivity implements  OnClickListener
         actionbar.setDisplayHomeAsUpEnabled(true);
         actionbar.setDisplayShowTitleEnabled(false);
 
+        //登录
+        et_1 = (EditText) findViewById(R.id.email);
+        et_2 = (EditText) findViewById(R.id.password);
+        button = (Button) findViewById(R.id.email_sign_in_button);
+
+        dbUtils = DbUtils.create(this);
+        userDao = new UserDao(dbUtils);
+
+        button.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String name = et_1.getText().toString();
+                String pwd = et_2.getText().toString();
+                String pwd2 = null;
+                List<UserDB> users = userDao.query(name);
+                if (users.size() !=0){
+                    for (UserDB userdb : users) {
+                        pwd2 = userdb.getPwd();
+                        if (pwd.equals(pwd2)){
+                            Toast.makeText(LoginActivity.this,"登录成功", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                            startActivity(intent);
+                        }else{
+                            Toast.makeText(LoginActivity.this, "密码有误", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }else{
+                    Toast.makeText(LoginActivity.this, "该用户不存在,请先注册", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
         //第三方登录
 
@@ -155,6 +196,18 @@ public class LoginActivity extends AppCompatActivity implements  OnClickListener
 
 
     }
+
+
+    /**
+     * 注册
+     * @param view
+     */
+    public  void  ToMyRegister(View view){
+        Intent intent = new Intent(LoginActivity.this,RegisterActivity.class);
+        startActivity(intent);
+    }
+
+
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             //返回按钮
@@ -711,8 +764,25 @@ public class LoginActivity extends AppCompatActivity implements  OnClickListener
                         // }
 
                         if (info != null) {
-                            Toast.makeText(LoginActivity.this, info.toString(),
-                                    Toast.LENGTH_SHORT).show();
+
+                            Intent intent = new Intent(LoginActivity.this, LoginSuccessActivity.class);
+                            Bundle bundle = new Bundle();
+                            StringBuilder sb = new StringBuilder();
+                            Set<String> keys = info.keySet();
+                            for (String key : keys) {
+                                sb.append(key + "=" + info.get(key).toString()
+                                        + "\r\n");
+                                if ("profile_image_url".equals(key.trim())){
+                                    bundle.putString("url",info.get(key).toString());
+                                } else if ("screen_name".equals(key.trim())) {
+                                    bundle.putString("name",info.get(key).toString());
+                                }
+
+                            }
+                            intent.putExtra("map",bundle);
+                            startActivity(intent);
+                            finish();
+
                         }
                     }
                 });
