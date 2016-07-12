@@ -4,9 +4,6 @@ android {
     compileSdkVersion 24
     buildToolsVersion "24.0.0"
     useLibrary 'org.apache.http.legacy'
-//    sourceSets.main{
-//        jniLibs.srcDirs=['libs']
-//    }
 
     defaultConfig {
         applicationId "com.example.beautydress"
@@ -66,4 +63,5 @@ dependencies {
     compile files('libs/SocialSDK_ynote.jar')
     compile files('libs/umeng_social_sdk.jar')
     compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'de.hdodenhof:circleimageview:2.1.0'
 }

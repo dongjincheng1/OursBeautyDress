@@ -64,13 +64,10 @@
         <activity android:name=".Activity.RegisterActivity"/>
         <activity android:name=".Activity.Mine_Setting_Activity" />
         <activity android:name=".Activity.ShowActivity" />
-
-
-
         <!-- 友盟AppKey， 需要替换成你自己的 -->
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="577f4c8b67e58eb25c001f90" />
+            android:value="578390b9e0f55a7a6b001abc" />
         <!-- *************************    分享相关的注册 START **************************** -->
         <!-- 分享内容编辑页 -->
         <activity
@@ -140,6 +137,9 @@
 
         <activity android:name=".Activity.SearchActivity" />
         <activity android:name=".Activity.MessageActivity" />
+        <activity android:name=".Activity.LoginSuccessActivity" />
+        <activity android:name=".Activity.AddAddressActivity"></activity>
+
 
     </application>
 

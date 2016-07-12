@@ -73,6 +73,7 @@ import java.io.File;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import umeng.umeng.soexample.commons.Constants;
 
@@ -763,8 +764,25 @@ public class LoginActivity extends AppCompatActivity implements  OnClickListener
                         // }
 
                         if (info != null) {
-                            Toast.makeText(LoginActivity.this, info.toString(),
-                                    Toast.LENGTH_SHORT).show();
+
+                            Intent intent = new Intent(LoginActivity.this, LoginSuccessActivity.class);
+                            Bundle bundle = new Bundle();
+                            StringBuilder sb = new StringBuilder();
+                            Set<String> keys = info.keySet();
+                            for (String key : keys) {
+                                sb.append(key + "=" + info.get(key).toString()
+                                        + "\r\n");
+                                if ("profile_image_url".equals(key.trim())){
+                                    bundle.putString("url",info.get(key).toString());
+                                } else if ("screen_name".equals(key.trim())) {
+                                    bundle.putString("name",info.get(key).toString());
+                                }
+
+                            }
+                            intent.putExtra("map",bundle);
+                            startActivity(intent);
+                            finish();
+
                         }
                     }
                 });
