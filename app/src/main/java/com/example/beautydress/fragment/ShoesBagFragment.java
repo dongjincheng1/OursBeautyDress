@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,7 +16,9 @@ import com.example.beautydress.R;
 import com.example.beautydress.bean.Classify;
 import com.example.beautydress.bean.ShangPin;
 import com.example.beautydress.common.Uris;
+import com.example.beautydress.utils.MyBitmapUtils;
 import com.example.beautydress.utils.ParseJSONUtils;
+import com.example.beautydress.view.MyGirdView;
 import com.lidroid.xutils.BitmapUtils;
 import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.exception.HttpException;
@@ -33,17 +34,18 @@ import java.util.List;
  */
 public class ShoesBagFragment extends Fragment {
     private View view;
-    private GridView shoes_bag_classify_gv;
-    private GridView shoes_bag_gv;
+    private MyGirdView shoes_bag_classify_gv;
+    private MyGirdView shoes_bag_gv;
     private HttpUtils hUtils;
     private BitmapUtils bitmapUtils;
     private List<ShangPin> shoes_bag_List;
     private List<Classify> shoes_bag_classify_list;
+    private MyBitmapUtils myBitmapUtils;
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view=inflater.inflate(R.layout.shoes_bag_layout,null);
-        shoes_bag_classify_gv=(GridView)view.findViewById(R.id.shoes_bag_classify_gv_id);
-        shoes_bag_gv=(GridView)view.findViewById(R.id.shoes_bag_gv_id);
+        shoes_bag_classify_gv=(MyGirdView)view.findViewById(R.id.shoes_bag_classify_gv_id);
+        shoes_bag_gv=(MyGirdView)view.findViewById(R.id.shoes_bag_gv_id);
         return view;
     }
     @Override
@@ -53,6 +55,7 @@ public class ShoesBagFragment extends Fragment {
         bitmapUtils = new BitmapUtils(getActivity());
         shoes_bag_classify_list=new ArrayList<Classify>();
         shoes_bag_List=new ArrayList<ShangPin>();
+        myBitmapUtils=new MyBitmapUtils();
     }
 
     @Override
@@ -72,7 +75,7 @@ public class ShoesBagFragment extends Fragment {
                     public void setData(ViewHolder viewHolder, int position) {
                         ImageView wd_cl_iv= (ImageView) viewHolder.findViewById(R.id.cl_item_iv_id);
                         TextView wd_cl_tv=(TextView)viewHolder.findViewById(R.id.cl_item_tv_id);
-                        bitmapUtils.display(wd_cl_iv,shoes_bag_classify_list.get(position).getPic_url());
+                        myBitmapUtils.display(wd_cl_iv,shoes_bag_classify_list.get(position).getPic_url());
                         wd_cl_tv.setText(shoes_bag_classify_list.get(position).getTitle());
                     }
                 });
@@ -99,7 +102,7 @@ public class ShoesBagFragment extends Fragment {
                             tv_title.setText(shoes_bag_List.get(position).getTitle());
                             tv_selling_price.setText("¥" + shoes_bag_List.get(position).getSelling_price() + "");
                             tv_sales_volume.setText(shoes_bag_List.get(position).getSales_volume() + "");
-                            bitmapUtils.display(iv_img, shoes_bag_List.get(position).getPic_url());
+                            myBitmapUtils.display(iv_img, shoes_bag_List.get(position).getPic_url());
                         }
                     });
 

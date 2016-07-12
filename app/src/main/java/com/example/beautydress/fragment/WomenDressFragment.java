@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +16,7 @@ import com.example.beautydress.R;
 import com.example.beautydress.bean.Classify;
 import com.example.beautydress.bean.JingPin;
 import com.example.beautydress.common.Uris;
+import com.example.beautydress.utils.MyBitmapUtils;
 import com.example.beautydress.utils.ParseJSONUtils;
 import com.example.beautydress.view.MyGirdView;
 import com.lidroid.xutils.BitmapUtils;
@@ -34,13 +34,14 @@ import java.util.List;
  */
 public class WomenDressFragment extends Fragment {
     private View view;
-    private GridView women_dress_classify_gv;
-    private GridView women_dress_gv2;
+    private MyGirdView women_dress_classify_gv;
+    private MyGirdView women_dress_gv2;
     private HttpUtils hUtils;
     private BitmapUtils bitmapUtils;
     private String jingPingUrl;
     private List<JingPin> jingPinList;
     private List<Classify> wd_classify_list;
+    private MyBitmapUtils myBitmapUtils;
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view=inflater.inflate(R.layout.women_dress_layout,null);
@@ -57,6 +58,7 @@ public class WomenDressFragment extends Fragment {
         jingPingUrl = Uris.HOME_RECOMMEND_URI.toString();
         wd_classify_list=new ArrayList<Classify>();
         jingPinList=new ArrayList<JingPin>();
+        myBitmapUtils=new MyBitmapUtils();
     }
 
     @Override
@@ -76,7 +78,7 @@ public class WomenDressFragment extends Fragment {
                     public void setData(ViewHolder viewHolder, int position) {
                         ImageView wd_cl_iv= (ImageView) viewHolder.findViewById(R.id.cl_item_iv_id);
                         TextView wd_cl_tv=(TextView)viewHolder.findViewById(R.id.cl_item_tv_id);
-                        bitmapUtils.display(wd_cl_iv,wd_classify_list.get(position).getPic_url());
+                        myBitmapUtils.display(wd_cl_iv,wd_classify_list.get(position).getPic_url());
                         wd_cl_tv.setText(wd_classify_list.get(position).getTitle());
                     }
                 });
@@ -103,7 +105,7 @@ public class WomenDressFragment extends Fragment {
                             tv_title.setText(jingPinList.get(position).getTitle());
                             tv_selling_price.setText("¥" + jingPinList.get(position).getSelling_price() + "");
                             tv_sales_volume.setText(jingPinList.get(position).getSales_volume() + "");
-                            bitmapUtils.display(iv_img, jingPinList.get(position).getPic_url());
+                            myBitmapUtils.display(iv_img, jingPinList.get(position).getPic_url());
                         }
                     });
 

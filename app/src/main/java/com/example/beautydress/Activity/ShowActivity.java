@@ -17,7 +17,7 @@ public class ShowActivity extends AppCompatActivity {
 
         WebView webView = (WebView) findViewById(R.id.webview_id);
         WebSettings settings = webView.getSettings();
-        //settings.setJavaScriptEnabled(true);
+        settings.setJavaScriptEnabled(true);
 
         WebViewClient client = new WebViewClient();
         webView.setWebViewClient(client);

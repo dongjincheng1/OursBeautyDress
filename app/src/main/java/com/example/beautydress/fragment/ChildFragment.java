@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +16,7 @@ import com.example.beautydress.R;
 import com.example.beautydress.bean.Classify;
 import com.example.beautydress.bean.ShangPin;
 import com.example.beautydress.common.Uris;
+import com.example.beautydress.utils.MyBitmapUtils;
 import com.example.beautydress.utils.ParseJSONUtils;
 import com.example.beautydress.view.MyGirdView;
 import com.lidroid.xutils.BitmapUtils;
@@ -34,17 +34,19 @@ import java.util.List;
  */
 public class ChildFragment extends Fragment {
     private View view;
-    private GridView children_classify_gv;
-    private GridView children_gv;
+    private MyGirdView children_classify_gv;
+    private MyGirdView children_gv;
     private HttpUtils hUtils;
     private BitmapUtils bitmapUtils;
     private List<ShangPin> children_List;
     private List<Classify> children_classify_list;
+    private MyBitmapUtils myBitmapUtils;
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view=inflater.inflate(R.layout.child_layout,null);
         children_classify_gv=(MyGirdView)view.findViewById(R.id.children_classify_gv_id);
         children_gv=(MyGirdView)view.findViewById(R.id.children_gv_id);
+
         return view;
     }
     @Override
@@ -54,6 +56,7 @@ public class ChildFragment extends Fragment {
         bitmapUtils = new BitmapUtils(getActivity());
         children_classify_list=new ArrayList<Classify>();
         children_List=new ArrayList<ShangPin>();
+        myBitmapUtils=new MyBitmapUtils();
     }
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -71,7 +74,7 @@ public class ChildFragment extends Fragment {
                     public void setData(ViewHolder viewHolder, int position) {
                         ImageView wd_cl_iv= (ImageView) viewHolder.findViewById(R.id.cl_item_iv_id);
                         TextView wd_cl_tv=(TextView)viewHolder.findViewById(R.id.cl_item_tv_id);
-                        bitmapUtils.display(wd_cl_iv,children_classify_list.get(position).getPic_url());
+                        myBitmapUtils.display(wd_cl_iv,children_classify_list.get(position).getPic_url());
                         wd_cl_tv.setText(children_classify_list.get(position).getTitle());
                     }
                 });
@@ -98,7 +101,7 @@ public class ChildFragment extends Fragment {
                             tv_title.setText(children_List.get(position).getTitle());
                             tv_selling_price.setText("¥" + children_List.get(position).getSelling_price() + "");
                             tv_sales_volume.setText(children_List.get(position).getSales_volume() + "");
-                            bitmapUtils.display(iv_img, children_List.get(position).getPic_url());
+                            myBitmapUtils.display(iv_img, children_List.get(position).getPic_url());
                         }
                     });
 

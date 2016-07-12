@@ -3,14 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#ffffff"
+    android:background="@drawable/shangpin_item_shape"
     >
     <ImageView
         android:id="@+id/jp_item_img_id"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:scaleType="fitXY"
-        android:src="@mipmap/test1" />
+        android:background="@drawable/shangpin_img_item_shape"
+        android:src="@mipmap/yuike_cartoon_pitiful" />
     <TextView
         android:id="@+id/jp_item_title_id"
         android:layout_width="match_parent"

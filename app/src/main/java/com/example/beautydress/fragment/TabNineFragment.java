@@ -20,6 +20,7 @@ import com.example.beautydress.Adapter.ViewHolder;
 import com.example.beautydress.R;
 import com.example.beautydress.bean.JingXuan;
 import com.example.beautydress.common.Uris;
+import com.example.beautydress.utils.MyBitmapUtils;
 import com.example.beautydress.utils.ParseJSONUtils;
 import com.lidroid.xutils.BitmapUtils;
 import com.lidroid.xutils.HttpUtils;
@@ -39,7 +40,8 @@ public class TabNineFragment extends Fragment {
     private String jingPinUrlStr;
     private List<JingXuan> listJingXuan;
     private GridView gv;
-    BitmapUtils bitmapUtils;
+    private BitmapUtils bitmapUtils;
+    private MyBitmapUtils myBitmapUtils;
     private static final String TAG = "---TabNineFragment----";
 
     @Override
@@ -48,6 +50,7 @@ public class TabNineFragment extends Fragment {
         utils = new HttpUtils();
         bitmapUtils = new BitmapUtils(getActivity());
         listJingXuan = new ArrayList<JingXuan>();
+        myBitmapUtils=new MyBitmapUtils();
     }
 
     @Override
@@ -85,7 +88,7 @@ public class TabNineFragment extends Fragment {
                             tv_selling_price.setText("¥"+listJingXuan.get(position).getTaobao_selling_price()+"");
                             tv_discount.setText(listJingXuan.get(position).getDiscount()+"");
                             tv_title.setText(listJingXuan.get(position).getTaobao_title()+"");
-                            bitmapUtils.display(iv_img,listJingXuan.get(position).getTaobao_pic_url());
+                            myBitmapUtils.display(iv_img,listJingXuan.get(position).getTaobao_pic_url());
                         }
                     });
                     gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -94,7 +97,7 @@ public class TabNineFragment extends Fragment {
                             Toast.makeText(getActivity(),listJingXuan.get(i).getTaobao_title(),Toast.LENGTH_LONG).show();
                             //点击事件
                             Intent intent = new Intent(getActivity(), ShowActivity.class);
-                            intent.putExtra("detailUrl",listJingXuan.get(i).getTaobao_url().toString());
+                            intent.putExtra("detailUrl",listJingXuan.get(i).getTaobao_url());
                             Log.i(TAG, "onItemClick: "+listJingXuan.get(i).getTaobao_url());
                             startActivity(intent);
                         }
