@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-
     tools:context="com.example.beautydress.Activity.LoginActivity">
 
     <android.support.v7.widget.Toolbar
@@ -37,7 +36,8 @@
     <ScrollView
         android:id="@+id/login_form"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="20dp">
 
         <LinearLayout
             android:id="@+id/email_login_form"
@@ -131,7 +131,7 @@
                 android:id="@+id/email_new_user_button"
                 style="?android:textAppearanceSmall"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="35dp"
                 android:layout_marginTop="10dp"
                 android:text="新用户注册"
                 android:textColor="#ff0000"
@@ -140,7 +140,7 @@
                 android:id="@+id/btn_share"
                 style="?android:textAppearanceSmall"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="35dp"
                 android:layout_marginTop="10dp"
                 android:textColor="#ff0000"
                 android:textStyle="bold"

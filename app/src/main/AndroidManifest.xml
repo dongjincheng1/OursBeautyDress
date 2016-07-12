@@ -120,7 +120,8 @@
 
         <activity android:name=".Activity.SearchActivity" />
         <activity android:name=".Activity.MessageActivity" />
-        <activity android:name=".Activity.LoginSuccessActivity"></activity>
+        <activity android:name=".Activity.LoginSuccessActivity" />
+        <activity android:name=".Activity.AddAddressActivity"></activity>
     </application>
 
 </manifest>

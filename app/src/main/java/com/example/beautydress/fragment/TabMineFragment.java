@@ -146,7 +146,9 @@ public class TabMineFragment extends Fragment {
     }
 
     private void aboutListView_01() {
-        int[] image = new int[]{R.mipmap.yuike_settings_indicator_un, R.mipmap.yuike_settings_indicator_un, R.mipmap.yuike_settings_indicator_un, R.mipmap.yuike_settings_indicator_un, R.mipmap.yuike_settings_indicator_un, R.mipmap.yuike_settings_indicator_un, R.mipmap.yuike_settings_indicator_un};
+        int[] image = new int[]{R.mipmap.yuike_settings_indicator_un, R.mipmap.yuike_settings_indicator_un,
+                R.mipmap.yuike_settings_indicator_un, R.mipmap.yuike_settings_indicator_un,
+                R.mipmap.yuike_settings_indicator_un, R.mipmap.yuike_settings_indicator_un, R.mipmap.yuike_settings_indicator_un};
         int[] imgsrc = new int[]{R.mipmap.kimagel_addr_list, R.mipmap.kimagel_coupon,R.mipmap.kimagel_wallet, R.mipmap.kimagel_ykcoin, R.mipmap.kimagel_signcenter,
                  R.mipmap.kimagel_x_product ,R.mipmap.kimagel_x_brand};
         String itemName[] = getResources().getStringArray(R.array.itemName);
