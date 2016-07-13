@@ -5,17 +5,20 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSONException;
@@ -53,6 +56,7 @@ public class RecommendFragment extends Fragment {
     private List<ImageView> ds;
     private LinearLayout ll_container_id;
     private Handler mHandler;
+    private FloatingActionButton topButton;
 
     private String jingPingUrl;
     private List<JingPin> jingPinList;
@@ -60,6 +64,9 @@ public class RecommendFragment extends Fragment {
 
     private static final String TAG = "RecommendFragment";
     private MyGirdView jingPin_GV;
+    private ScrollView sv_content;
+    private MyBaseAdapter<JingPin> JinPinAdapter;
+    private MyBitmapUtils myBitmapUtils;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -78,7 +85,9 @@ public class RecommendFragment extends Fragment {
         vp_top = (ViewPager) view.findViewById(R.id.vp_top_id);
         jingPin_GV = (MyGirdView)view.findViewById(R.id.jp_gv_id);
         ll_container_id = (LinearLayout) view.findViewById(R.id.ll_container_id);
-
+        //topButton = (FloatingActionButton) view.findViewById(R.id.to_top_button);
+        sv_content = (ScrollView) view.findViewById(R.id.sv_content_id);
+        sv_content.scrollTo(0,0);
         return view;
     }
 
@@ -112,6 +121,57 @@ public class RecommendFragment extends Fragment {
             mHandler.sendEmptyMessageDelayed(0, 3000);
         }
         aboutJingPingGridView(jingPingUrl);
+        //aboutToTopButton();
+        jingPin_GV.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+
+                switch (motionEvent.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        break;
+                    case MotionEvent.ACTION_MOVE:
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        if (jingPin_GV.getLastVisiblePosition() == JinPinAdapter.getCount() - 1) {
+                        }
+                        break;
+                }
+
+                return true;
+            }
+        });
+        aboutModleList(view);
+
+//       jingPin_GV.setOnScrollListener(new AbsListView.OnScrollListener() {
+//           @Override
+//           public void onScrollStateChanged(AbsListView absListView, int i) {
+//
+//               if(jingPin_GV.getLastVisiblePosition()==jingPinList.size()/2){
+//
+//                   Toast.makeText(getActivity(),"滑动到最后了",Toast.LENGTH_LONG).show();
+//                  hUtils.send(HttpRequest.HttpMethod.GET, "http://api.yuike.com/gmall/api/1.0/allbuy/list.php?mid=457465&type=dress&category_ids=4796%2C4797%2C4805%2C4838%2C4839%2C4840%2C4841%2C4843&sort=default&yk_pid=3&yk_appid=1&yk_cc=baidu&yk_cvc=311&cursor=120&count=40", new RequestCallBack<String>() {
+//                        @Override
+//                        public void onFailure(HttpException error, String msg) {
+//                            Toast.makeText(getActivity(),"加载失败",Toast.LENGTH_LONG).show();
+//                        }
+//
+//                        @Override
+//                        public void onSuccess(ResponseInfo<String> responseInfo) {
+//                            List<JingPin> jingPinMore=ParseJSONUtils.parseJingPin(responseInfo.result);
+//                            jingPinList.addAll(jingPinMore);
+//                            JinPinAdapter.notifyDataSetChanged();
+//
+//                        }
+//                    });
+//               }
+//           }
+//
+//           @Override
+//           public void onScroll(AbsListView absListView, int i, int i1, int i2) {
+
+//           }
+//       });
+//
         super.onActivityCreated(savedInstanceState);
     }
 
@@ -337,5 +397,33 @@ public class RecommendFragment extends Fragment {
 
     }
 
+//    private void aboutToTopButton() {
+//        topButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                sv_content.fullScroll(ScrollView.FOCUS_UP);
+//                sv_content.scrollTo(10, 10);
+//            }
+//        });
+//    }
+
+    private void aboutModleList(View view) {
+        String[] img_id=new String[]{Uris.MODLE_LIST_1,Uris.MODLE_LIST_2,Uris.MODLE_LIST_3,Uris.MODLE_LIST_4
+                ,Uris.MODLE_LIST_5,Uris.MODLE_LIST_6,Uris.MODLE_LIST_7};
+            ImageView img1=(ImageView)view.findViewById(R.id.rec_tm_img1_id);
+            ImageView img2=(ImageView)view.findViewById(R.id.rec_tm_img2_id);
+            ImageView img3=(ImageView)view.findViewById(R.id.rec_tm_img3_id);
+            ImageView img4=(ImageView)view.findViewById(R.id.rec_tm_img4_id);
+            ImageView img5=(ImageView)view.findViewById(R.id.rec_tm_img5_id);
+            ImageView img6=(ImageView)view.findViewById(R.id.rec_tm_img6_id);
+            ImageView img7=(ImageView)view.findViewById(R.id.rec_tm_img7_id);
+            myBitmapUtils.display(img1,img_id[0]);
+            myBitmapUtils.display(img2,img_id[1]);
+            myBitmapUtils.display(img3,img_id[2]);
+            myBitmapUtils.display(img4,img_id[3]);
+            myBitmapUtils.display(img5,img_id[5]);
+            myBitmapUtils.display(img6,img_id[4]);
+            myBitmapUtils.display(img7,img_id[6]);
+    }
 
 }

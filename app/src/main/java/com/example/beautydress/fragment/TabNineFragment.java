@@ -103,8 +103,6 @@ public class TabNineFragment extends Fragment {
                             startActivity(intent);
                         }
                     });
-
-
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

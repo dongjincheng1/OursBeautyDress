@@ -37,8 +37,8 @@ import java.util.List;
  */
 public class OlderFragment extends Fragment {
     private View view;
-    private GridView older_classify_gv;
-    private GridView older_gv;
+    private MyGirdView older_classify_gv;
+    private MyGirdView older_gv;
     private HttpUtils hUtils;
 //    private BitmapUtils bitmapUtils;
     private List<ShangPin> older_List;

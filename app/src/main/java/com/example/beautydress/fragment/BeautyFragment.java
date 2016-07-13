@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.alibaba.fastjson.JSONException;
 import com.bumptech.glide.Glide;
@@ -38,8 +39,8 @@ import java.util.List;
  */
 public class BeautyFragment extends Fragment {
     private View view;
-    private GridView makeup_classify_gv;
-    private GridView makeup_gv;
+    private MyGirdView makeup_classify_gv;
+    private MyGirdView  makeup_gv;
     private HttpUtils hUtils;
     //    private BitmapUtils bitmapUtils;
     private List<ShangPin> makeup_List;
@@ -61,8 +62,11 @@ public class BeautyFragment extends Fragment {
 //        bitmapUtils = new BitmapUtils(getActivity());
         makeup_classify_list = new ArrayList<Classify>();
         makeup_List = new ArrayList<ShangPin>();
+        bitmapUtils = new BitmapUtils(getActivity());
+        makeup_classify_list=new ArrayList<Classify>();
+        makeup_List=new ArrayList<ShangPin>();
+        myBitmapUtils=new MyBitmapUtils();
     }
-
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         aboutMakeUpGridView(Uris.MAKEUP_LIST);
@@ -87,10 +91,8 @@ public class BeautyFragment extends Fragment {
                     }
                 });
             }
-
             @Override
-            public void onFailure(HttpException error, String msg) {
-                ;
+            public void onFailure(HttpException error, String msg) {;
             }
         });
     }

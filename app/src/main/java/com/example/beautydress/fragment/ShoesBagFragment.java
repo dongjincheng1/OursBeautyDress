@@ -22,6 +22,8 @@ import com.example.beautydress.bean.Classify;
 import com.example.beautydress.bean.ShangPin;
 import com.example.beautydress.common.Uris;
 import com.example.beautydress.utils.ParseJSONUtils;
+import com.example.beautydress.view.MyGirdView;
+import com.lidroid.xutils.BitmapUtils;
 import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
@@ -36,8 +38,8 @@ import java.util.List;
  */
 public class ShoesBagFragment extends Fragment {
     private View view;
-    private GridView shoes_bag_classify_gv;
-    private GridView shoes_bag_gv;
+    private MyGirdView shoes_bag_classify_gv;
+    private MyGirdView shoes_bag_gv;
     private HttpUtils hUtils;
 //    private BitmapUtils bitmapUtils;
     private List<ShangPin> shoes_bag_List;
@@ -45,8 +47,8 @@ public class ShoesBagFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view=inflater.inflate(R.layout.shoes_bag_layout,null);
-        shoes_bag_classify_gv=(GridView)view.findViewById(R.id.shoes_bag_classify_gv_id);
-        shoes_bag_gv=(GridView)view.findViewById(R.id.shoes_bag_gv_id);
+        shoes_bag_classify_gv=(MyGirdView)view.findViewById(R.id.shoes_bag_classify_gv_id);
+        shoes_bag_gv=(MyGirdView)view.findViewById(R.id.shoes_bag_gv_id);
         return view;
     }
     @Override

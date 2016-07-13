@@ -37,8 +37,8 @@ import java.util.List;
  */
 public class MenDressFragment extends Fragment {
     private View view;
-    private GridView men_dress_classify_gv;
-    private GridView  men_dress_gv;
+    private MyGirdView men_dress_classify_gv;
+    private MyGirdView  men_dress_gv;
     private HttpUtils hUtils;
 //    private BitmapUtils bitmapUtils;
     private List<ShangPin>  men_dress_List;

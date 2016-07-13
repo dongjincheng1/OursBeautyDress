@@ -37,8 +37,8 @@ import java.util.List;
  */
 public class TextilesFragment extends Fragment {
     private View view;
-    private GridView textiles_classify_gv;
-    private GridView  textiles_gv;
+    private MyGirdView textiles_classify_gv;
+    private MyGirdView  textiles_gv;
     private HttpUtils hUtils;
 //    private BitmapUtils bitmapUtils;
     private List<ShangPin> textiles_List;

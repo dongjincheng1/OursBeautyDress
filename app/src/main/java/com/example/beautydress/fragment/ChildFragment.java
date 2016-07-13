@@ -37,8 +37,8 @@ import java.util.List;
  */
 public class ChildFragment extends Fragment {
     private View view;
-    private GridView children_classify_gv;
-    private GridView children_gv;
+    private MyGirdView children_classify_gv;
+    private MyGirdView children_gv;
     private HttpUtils hUtils;
 //    private BitmapUtils bitmapUtils;
     private List<ShangPin> children_List;
