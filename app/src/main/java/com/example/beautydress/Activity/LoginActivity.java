@@ -172,21 +172,21 @@ public class LoginActivity extends AppCompatActivity implements  OnClickListener
 
         //第三方登录
 
-        sinaLoginButton = (Button) this.findViewById(R.id.btn_sina_login);
-        sinaLogoutButton = (Button) this.findViewById(R.id.btn_sina_logout);
+        //sinaLoginButton = (Button) this.findViewById(R.id.btn_sina_login);
+       // sinaLogoutButton = (Button) this.findViewById(R.id.btn_sina_logout);
         qqLoginButton = (Button) this.findViewById(R.id.btn_qq_login);
-        qqLogoutButton = (Button) this.findViewById(R.id.btn_qq_logout);
+       // qqLogoutButton = (Button) this.findViewById(R.id.btn_qq_logout);
         shareButton = (Button) this.findViewById(R.id.btn_share);
-        wechatLoginButton = (ImageView) this.findViewById(R.id.btn_wechat_login);
-        wechatLogoutButton = (Button) this.findViewById(R.id.btn_wechat_logout);
+       // wechatLoginButton = (ImageView) this.findViewById(R.id.btn_wechat_login);
+      //  wechatLogoutButton = (Button) this.findViewById(R.id.btn_wechat_logout);
 
-        sinaLoginButton.setOnClickListener(this);
-        sinaLogoutButton.setOnClickListener(this);
+       // sinaLoginButton.setOnClickListener(this);
+       // sinaLogoutButton.setOnClickListener(this);
         qqLoginButton.setOnClickListener(this);
-        qqLogoutButton.setOnClickListener(this);
+       // qqLogoutButton.setOnClickListener(this);
         shareButton.setOnClickListener(this);
-        wechatLoginButton.setOnClickListener(this);
-        wechatLogoutButton.setOnClickListener(this);
+      //  wechatLoginButton.setOnClickListener(this);
+      //  wechatLogoutButton.setOnClickListener(this);
 
         // 配置需要分享的相关平台
         configPlatforms();
@@ -669,27 +669,27 @@ public class LoginActivity extends AppCompatActivity implements  OnClickListener
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btn_sina_login: // 新浪微博登录
-                login(SHARE_MEDIA.SINA);
-                break;
+         //   case R.id.btn_sina_login: // 新浪微博登录
+           //     login(SHARE_MEDIA.SINA);
+           //     break;
             case R.id.btn_qq_login: // qq登录
-                login(SHARE_MEDIA.QQ);
-                break;
-            case R.id.btn_wechat_login: // 微信登陆
-                login(SHARE_MEDIA.WEIXIN);
-                break;
+               login(SHARE_MEDIA.QQ);
+               break;
+           // case R.id.btn_wechat_login: // 微信登陆
+              //  login(SHARE_MEDIA.WEIXIN);
+              //  break;
             case R.id.btn_share: // 一键分享
                 addCustomPlatforms();
                 break;
-            case R.id.btn_sina_logout: // 注销新浪账号
-                logout(SHARE_MEDIA.SINA);
-                break;
-            case R.id.btn_qq_logout: // 注销qq账号
-                logout(SHARE_MEDIA.QQ);
-                break;
-            case R.id.btn_wechat_logout:
-                logout(SHARE_MEDIA.WEIXIN); // 注销微信账号
-                break;
+          //  case R.id.btn_sina_logout: // 注销新浪账号
+           //     logout(SHARE_MEDIA.SINA);
+            //    break;
+           // case R.id.btn_qq_logout: // 注销qq账号
+              //  logout(SHARE_MEDIA.QQ);
+              //  break;
+            //case R.id.btn_wechat_logout:
+             //   logout(SHARE_MEDIA.WEIXIN); // 注销微信账号
+            //    break;
             default:
                 break;
         }

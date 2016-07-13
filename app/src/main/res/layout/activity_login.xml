@@ -175,48 +175,20 @@
                     android:layout_gravity="center_vertical"
                     android:src="@mipmap/login_dotted_line"/>
             </LinearLayout>
-            <ImageView
-                android:id="@+id/btn_wechat_login"
-                android:layout_width="wrap_content"
+            <Button
+                android:id="@+id/btn_qq_login"
+                android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"
-                android:src="@mipmap/login_weixin_btn_un"/>
+                android:background="@mipmap/share_icon_qq"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
-                android:text="微信"/>
-            <Button
-                android:id="@+id/btn_sina_login"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="登录（新浪微博）" />
+                android:text="QQ登录"/>
 
-            <Button
-                android:id="@+id/btn_sina_logout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="注销（新浪微博）" />
-
-            <Button
-                android:id="@+id/btn_qq_login"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="登录（QQ）" />
-
-            <Button
-                android:id="@+id/btn_qq_logout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="注销（QQ）" />
-
-            <Button
-                android:id="@+id/btn_wechat_logout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="注销（微信）" />
 
 
 
