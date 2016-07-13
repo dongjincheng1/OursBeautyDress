@@ -6,10 +6,10 @@
     >
     <ImageView
         android:id="@+id/cl_item_iv_id"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
         android:scaleType="fitXY"
-        android:src="@mipmap/ic_launcher"
+        android:src="@mipmap/msgc_img_face1"
 
         />
     <TextView

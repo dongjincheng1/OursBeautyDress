@@ -74,8 +74,13 @@ public class LoginSuccessActivity extends AppCompatActivity {
         me_lv_01.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent =new Intent(LoginSuccessActivity.this,LoginActivity.class);
+            if (i==0){
+                Intent intent = new Intent(LoginSuccessActivity.this,AddAddressActivity.class);
                 startActivity(intent);
+            }else {
+                Intent intent = new Intent(LoginSuccessActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
             }
         });
     }

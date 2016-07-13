@@ -79,4 +79,12 @@ public class Uris {
     public static final String TEXTILES_CATE="http://api.yuike.com/gmall/api/1.0/allbuy/category_list.php?mid=457465&type=textiles&yk_pid=3&yk_appid=1&yk_cc=baidu&yk_cvc=311&cursor=0&count=40";
     //家纺列表
     public static final String TEXTILES_LIST="http://api.yuike.com/gmall/api/1.0/allbuy/list.php?mid=457465&type=textiles&category_ids=0&sort=default&yk_pid=3&yk_appid=1&yk_cc=baidu&yk_cvc=311&cursor=0&count=40";
+
+    public static final String MODLE_LIST_1="http://gouwu.cdn.yuike.com/data/img/457465/home_model/f58c9c05ae1e955274ed603344d24d35.jpg";
+    public static final String MODLE_LIST_2="http://gouwu.cdn.yuike.com/data/img/457465/home_model/3866f680e23530b7242df71e128b3c59.jpg";
+    public static final String MODLE_LIST_3="http://gouwu.cdn.yuike.com/data/img/457465/home_model/b94ee961e99e951c228e1cd01116710f.jpg";
+    public static final String MODLE_LIST_4="http://gouwu.cdn.yuike.com/data/img/457465/home_model/0e77b8895f5fcc83273a36b03e876f6d.jpg";
+    public static final String MODLE_LIST_5="http://gouwu.cdn.yuike.com/data/img/457465/home_model/3a47e2819a7f6de457f15f9af84611a2.jpg";
+    public static final String MODLE_LIST_6="http://gouwu.cdn.yuike.com/data/img/457465/home_model/790afa8bf218370177e1126482919f37.jpg";
+    public static final String MODLE_LIST_7="http://gouwu.cdn.yuike.com/data/img/457465/home_model/ff7f9df2a99b72d343569fd97d289d08.jpg";
 }

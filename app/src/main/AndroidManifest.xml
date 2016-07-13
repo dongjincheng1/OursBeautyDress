@@ -2,6 +2,20 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.beautydress">
 
+    <meta-data
+        android:name="com.example.beautydress.view.CustomCachingGlideModule"
+        android:value="GlideModule" />
+
+
+    <!-- 屏幕适配设置 -->
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" />
+
+    <!-- 权限设置 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -16,7 +30,9 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
-    <!-- renren sso Permission for Unit Test -->
+
+
+    <!-- 友盟renren sso Permission for Unit Test -->
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.SET_DEBUG_APP" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
@@ -35,22 +51,28 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Activity.MainActivity">
+
+        </activity>
+        <activity android:name=".Activity.GuidePagerActivity"
+            android:name=".Activity.GuidePagerActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".Activity.GuidePagerActivity" />
+            </activity>
         <activity
             android:name=".Activity.LoginActivity"
             android:configChanges="orientation|keyboard" />
+        <activity android:name=".Activity.RegisterActivity"/>
         <activity android:name=".Activity.Mine_Setting_Activity" />
         <activity android:name=".Activity.ShowActivity" />
         <!-- 友盟AppKey， 需要替换成你自己的 -->
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="577f4c8b67e58eb25c001f90" />
+            android:value="578390b9e0f55a7a6b001abc" />
         <!-- *************************    分享相关的注册 START **************************** -->
         <!-- 分享内容编辑页 -->
         <activity
@@ -120,7 +142,10 @@
 
         <activity android:name=".Activity.SearchActivity" />
         <activity android:name=".Activity.MessageActivity" />
-        <activity android:name=".Activity.LoginSuccessActivity"></activity>
+        <activity android:name=".Activity.LoginSuccessActivity" />
+        <activity android:name=".Activity.AddAddressActivity"></activity>
+
+
     </application>
 
 </manifest>

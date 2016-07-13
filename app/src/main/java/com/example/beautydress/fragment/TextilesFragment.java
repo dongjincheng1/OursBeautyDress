@@ -1,16 +1,20 @@
 package com.example.beautydress.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSONException;
+import com.bumptech.glide.Glide;
+import com.example.beautydress.Activity.ShowActivity;
 import com.example.beautydress.Adapter.MyBaseAdapter;
 import com.example.beautydress.Adapter.ViewHolder;
 import com.example.beautydress.R;
@@ -19,7 +23,6 @@ import com.example.beautydress.bean.ShangPin;
 import com.example.beautydress.common.Uris;
 import com.example.beautydress.utils.ParseJSONUtils;
 import com.example.beautydress.view.MyGirdView;
-import com.lidroid.xutils.BitmapUtils;
 import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
@@ -34,10 +37,10 @@ import java.util.List;
  */
 public class TextilesFragment extends Fragment {
     private View view;
-    private GridView textiles_classify_gv;
-    private GridView  textiles_gv;
+    private MyGirdView textiles_classify_gv;
+    private MyGirdView  textiles_gv;
     private HttpUtils hUtils;
-    private BitmapUtils bitmapUtils;
+//    private BitmapUtils bitmapUtils;
     private List<ShangPin> textiles_List;
     private List<Classify>  textiles_classify_list;
     @Override
@@ -51,7 +54,7 @@ public class TextilesFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         hUtils = new HttpUtils();
-        bitmapUtils = new BitmapUtils(getActivity());
+//        bitmapUtils = new BitmapUtils(getActivity());
         textiles_classify_list=new ArrayList<Classify>();
         textiles_List=new ArrayList<ShangPin>();
     }
@@ -72,7 +75,11 @@ public class TextilesFragment extends Fragment {
                     public void setData(ViewHolder viewHolder, int position) {
                         ImageView wd_cl_iv= (ImageView) viewHolder.findViewById(R.id.cl_item_iv_id);
                         TextView wd_cl_tv=(TextView)viewHolder.findViewById(R.id.cl_item_tv_id);
-                        bitmapUtils.display(wd_cl_iv,textiles_classify_list.get(position).getPic_url());
+//                        bitmapUtils.display(wd_cl_iv,textiles_classify_list.get(position).getPic_url());
+                        Glide.with(getActivity())
+                                .load(textiles_classify_list.get(position).getPic_url())
+                                .override(600,200)
+                                .into(wd_cl_iv);
                         wd_cl_tv.setText(textiles_classify_list.get(position).getTitle());
                     }
                 });
@@ -99,10 +106,25 @@ public class TextilesFragment extends Fragment {
                             tv_title.setText(textiles_List.get(position).getTitle());
                             tv_selling_price.setText("¥" + textiles_List.get(position).getSelling_price() + "");
                             tv_sales_volume.setText(textiles_List.get(position).getSales_volume() + "");
-                            bitmapUtils.display(iv_img, textiles_List.get(position).getPic_url());
+//                            bitmapUtils.display(iv_img, textiles_List.get(position).getPic_url());
+                            Glide.with(getActivity())
+                                    .load(textiles_List.get(position).getPic_url())
+                                    .override(600,200)
+                                    .into(iv_img);
+
+
                         }
                     });
 
+                    textiles_gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                            //点击事件
+                            Intent intent = new Intent(getActivity(), ShowActivity.class);
+                            intent.putExtra("detailUrl",textiles_List.get(i).getUrl().toString());
+                            startActivity(intent);
+                        }
+                    });
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

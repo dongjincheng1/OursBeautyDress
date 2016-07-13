@@ -23,6 +23,7 @@
         android:layout_height="0dp"
         android:layout_weight="1">
 
+
         <GridView
             android:id="@+id/jx_gv_id"
             android:horizontalSpacing="10dp"

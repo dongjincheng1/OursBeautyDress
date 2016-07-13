@@ -14,7 +14,7 @@
         android:title="登录"
         android:navigationIcon="@mipmap/yuike_button_xback_sp"
         android:background="#fff"
-       >
+      >
 
             <TextView
             android:layout_width="wrap_content"
@@ -37,7 +37,8 @@
     <ScrollView
         android:id="@+id/login_form"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="20dp">
 
         <LinearLayout
             android:id="@+id/email_login_form"
@@ -47,75 +48,81 @@
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                >
-         <RelativeLayout
-             android:layout_width="match_parent"
-             android:layout_height="40dp"
-             android:background="@mipmap/alertview_custom_left_un"
-             android:gravity="center_vertical">
-             <ImageView
-                 android:id="@+id/login_user_iv"
-                 android:layout_width="wrap_content"
-                 android:layout_height="match_parent"
-                 android:paddingLeft="5dp"
-                 android:src="@mipmap/login_user_icon"/>
-             <ImageView
-                 android:id="@+id/login_stoke_line"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:layout_marginLeft="10dp"
-                 android:layout_marginTop="10dp"
-                 android:layout_toRightOf="@+id/login_user_iv"
-                 android:src="@mipmap/login_stoke_line"/>
-             <AutoCompleteTextView
-                 android:layout_marginLeft="5dp"
-                 android:layout_toRightOf="@+id/login_stoke_line"
+                android:layout_height="wrap_content">
 
-                 android:id="@+id/email"
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:hint="手机号"
-                 android:textSize="15sp"
-                 android:inputType="textEmailAddress"
-                 />
-         </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@mipmap/alertview_custom_left_un"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:id="@+id/login_user_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="5dp"
+                        android:src="@mipmap/login_user_icon" />
+
+                    <ImageView
+                        android:id="@+id/login_stoke_line"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_toRightOf="@+id/login_user_iv"
+                        android:src="@mipmap/login_stoke_line" />
+
+                    <EditText
+                        android:id="@+id/email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toRightOf="@+id/login_stoke_line"
+                        android:hint="手机号"
+                        android:inputType="textEmailAddress"
+                        android:textSize="15sp" />
+                </RelativeLayout>
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
                 android:paddingTop="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="40dp"
-    android:background="@mipmap/alertview_custom_left_un"
-    android:gravity="center_vertical">
-    <ImageView
-        android:paddingLeft="5dp"
-        android:id="@+id/login_pass_iv"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:src="@mipmap/login_pass_icon"/>
-    <ImageView
-        android:id="@+id/pass_stoke_line"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/login_stoke_line"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_toRightOf="@+id/login_pass_iv"/>
-    android:layout_toRightOf="@+id/login_pass_iv"/>
-    <EditText
-        android:layout_marginLeft="5dp"
-        android:layout_toRightOf="@+id/pass_stoke_line"
-        android:id="@+id/password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="密码"
-        android:textSize="15sp"
-        android:inputType="textPassword" />
-</RelativeLayout>
+                android:layout_height="wrap_content"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@mipmap/alertview_custom_left_un"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:id="@+id/login_pass_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="5dp"
+                        android:src="@mipmap/login_pass_icon" />
+
+                    <ImageView
+                        android:id="@+id/pass_stoke_line"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_toRightOf="@+id/login_pass_iv"
+                        android:src="@mipmap/login_stoke_line" />
+                    android:layout_toRightOf="@+id/login_pass_iv"/>
+
+                    <EditText
+                        android:id="@+id/password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toRightOf="@+id/pass_stoke_line"
+                        android:hint="密码"
+                        android:inputType="textPassword"
+                        android:textSize="15sp" />
+                </RelativeLayout>
             </android.support.design.widget.TextInputLayout>
 
             <Button
@@ -131,16 +138,18 @@
                 android:id="@+id/email_new_user_button"
                 style="?android:textAppearanceSmall"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="35dp"
                 android:layout_marginTop="10dp"
                 android:text="新用户注册"
                 android:textColor="#ff0000"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:onClick="ToMyRegister"/>
+
             <Button
                 android:id="@+id/btn_share"
                 style="?android:textAppearanceSmall"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="35dp"
                 android:layout_marginTop="10dp"
                 android:textColor="#ff0000"
                 android:textStyle="bold"
@@ -166,48 +175,20 @@
                     android:layout_gravity="center_vertical"
                     android:src="@mipmap/login_dotted_line"/>
             </LinearLayout>
-            <ImageView
-                android:id="@+id/btn_wechat_login"
-                android:layout_width="wrap_content"
+            <Button
+                android:id="@+id/btn_qq_login"
+                android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"
-                android:src="@mipmap/login_weixin_btn_un"/>
+                android:background="@mipmap/share_icon_qq"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
-                android:text="微信"/>
-            <Button
-                android:id="@+id/btn_sina_login"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="登录（新浪微博）" />
+                android:text="QQ登录"/>
 
-            <Button
-                android:id="@+id/btn_sina_logout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="注销（新浪微博）" />
-
-            <Button
-                android:id="@+id/btn_qq_login"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="登录（QQ）" />
-
-            <Button
-                android:id="@+id/btn_qq_logout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="注销（QQ）" />
-
-            <Button
-                android:id="@+id/btn_wechat_logout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="注销（微信）" />
 
 
 

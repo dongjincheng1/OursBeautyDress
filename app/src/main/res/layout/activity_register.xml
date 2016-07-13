@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.beautydress.Activity.RegisterActivity">
+
+    <LinearLayout
+        android:id="@+id/email_register_form"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/register_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:navigationIcon="@mipmap/yuike_button_xback_sp"
+            android:title="注册">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="注册"
+                android:textColor="#7A7A7A"
+                android:textSize="18sp" />
+
+        </android.support.v7.widget.Toolbar>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@mipmap/alertview_custom_left_un"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/login_user_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="5dp"
+                    android:src="@mipmap/login_user_icon" />
+
+                <ImageView
+                    android:id="@+id/login_stoke_line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/login_user_iv"
+                    android:src="@mipmap/login_stoke_line" />
+
+                <EditText
+                    android:id="@+id/et_name_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/login_stoke_line"
+                    android:hint="手机号"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@mipmap/alertview_custom_left_un"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/register_pass_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="5dp"
+                    android:src="@mipmap/login_pass_icon" />
+
+                <ImageView
+                    android:id="@+id/pass_stoke_line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/register_pass_iv"
+                    android:src="@mipmap/login_stoke_line" />
+                android:layout_toRightOf="@+id/login_pass_iv"/>
+
+                <EditText
+                    android:id="@+id/et_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@id/pass_stoke_line"
+                    android:hint="密码"
+                    android:inputType="textPassword"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+        </android.support.design.widget.TextInputLayout>
+
+
+        <Button
+            android:id="@+id/bt_register"
+            style="?android:textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="#ff0000"
+            android:text="注册"
+            android:textColor="#fff"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</RelativeLayout>
